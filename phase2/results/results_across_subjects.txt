@@ -1,0 +1,20 @@
+SafetyPop Phase 2: across subjects
+========================================================================
+
+H7 pooled across subjects
+------------------------------------------------------------------------
+Observed 19.6% (126/644) vs adjusted chance 18.2%; two-sided exact p = 0.38
+Trials needed for 80% power at the pooled effect (19.6% vs 18.2%): about 6,600
+
+Exploratory  Cross-divider perseveration (a floor under the ghost rate)
+------------------------------------------------------------------------
+   Ben      same cell on 21.3% (20/94) of cross-side pairs vs chance 20.1%, two-sided exact p = 0.85
+   Billy    same cell on 28.6% (495/1728) of cross-side pairs vs chance 24.3%, two-sided exact p = 8.8e-06
+
+Phase 1 side-switch rates on core trials, all five subjects
+------------------------------------------------------------------------
+   Arthur   25%
+   Ben      38%
+   Billy    72%
+   Evelyn   49%
+   Rowena   14%
