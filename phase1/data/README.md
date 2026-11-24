@@ -135,7 +135,7 @@ abandoned attempt was in that booth the same minute).
 ## Provenance notes
 
 - Touch registration changed during Phase 1. The v1.0 build registers a touch on `MouseDown` and
-  on `MouseEnter`; a later build uses `MouseDown` only. Rowena's sessions 1 to 10 were collected
+  on `MouseEnter`; the 2026-06-15 build in `../app/` uses `MouseDown` only. Rowena's sessions 1 to 10 were collected
   with the `MouseEnter` build.
 - [ ] Record which build each of the other sessions used.
 - `TargetCellPos` is set at trial setup and never reassigned. After each correct target touch the

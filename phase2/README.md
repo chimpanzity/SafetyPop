@@ -80,7 +80,7 @@ the Phase 2 source once that is in `app/`.
 
 ## Still to add
 
-- [ ] The Phase 2 task source and its `Stim/` assets
+- [ ] The Phase 2 collection build from a booth machine (the ApeTouch master copy holds only the 08-04 prototype, now in `app/prototype_2026-08-04/`)
 - [ ] Column definitions checked against the source
 - [ ] Decisions on the twice-run and restarted sessions listed above
 - [ ] The subject of the unassigned 10-20 session

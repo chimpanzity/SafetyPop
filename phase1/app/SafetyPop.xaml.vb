@@ -31,13 +31,13 @@ Class SafetyPop
     ' When True, the session is locked in and play/pause toggles run state.
     Dim sessionInitialized As Boolean = False
 
-    ' Ten pre-generated fixed sequences for Mode 2 (resume-able).
+    ' Twenty pre-generated fixed sequences for Mode 2 (resume-able).
     ' Generated once in Window_Loaded by seeded shuffle of canonical60Codes
     ' so they're stable across runs.
-    Dim fixedSequences(9)() As String
+    Dim fixedSequences(19)() As String
 
     ' Canonical 60-trial composition used by both run modes. Mode 1 shuffles
-    ' this freshly each play press; Mode 2 builds 10 deterministic shuffles
+    ' this freshly each play press; Mode 2 builds 20 deterministic shuffles
     ' from it. Codes are {Type}{FaceCode}{Side}, see ParseTrialCode for
     ' decoding. Composition: 24 core A-D, 6 A-probes, 6 I-probes, 2 E,
     ' 6 F, 2 G, 2 H, 6 I-std, 6 J = 60 trials.
@@ -325,20 +325,16 @@ Class SafetyPop
         rightRects(0) = R1 : rightRects(1) = R2 : rightRects(2) = R3 : rightRects(3) = R4
         rightRects(4) = R5 : rightRects(5) = R6 : rightRects(6) = R7 : rightRects(7) = R8
 
-        ' Attach unified touch handler — both MouseDown and MouseEnter
-        ' fire the same handler. MouseEnter is the MC1 convention that
-        ' catches sliding/dragging touches (apes often slide rather than
-        ' tap cleanly). WPF's touch-to-mouse promotion routes finger
-        ' input through these events. The existing IsEnabled gating in
-        ' StimTouched plus the per-stim disable-after-touch logic acts
-        ' as the debounce (same role as MC1's _IsCodeExecuted flags).
+        ' Attach touch handler on MouseDown only. A stim registers only when
+        ' it is pressed/tapped directly; sliding or dragging a finger across a
+        ' stim (which fires MouseEnter via WPF's touch-to-mouse promotion) no
+        ' longer counts as a touch. The IsEnabled gating in StimTouched plus
+        ' the per-stim disable-after-touch logic still act as the debounce.
         For Each r In leftRects
             AddHandler r.MouseDown, AddressOf StimTouched
-            AddHandler r.MouseEnter, AddressOf StimTouched
         Next
         For Each r In rightRects
             AddHandler r.MouseDown, AddressOf StimTouched
-            AddHandler r.MouseEnter, AddressOf StimTouched
         Next
 
         ' Set up grid row/column definitions
@@ -349,15 +345,15 @@ Class SafetyPop
         For Each r In leftRects : r.Visibility = Visibility.Hidden : Next
         For Each r In rightRects : r.Visibility = Visibility.Hidden : Next
 
-        ' Generate the 10 fixed sequences via seeded shuffle of canonical60Codes.
+        ' Generate the 20 fixed sequences via seeded shuffle of canonical60Codes.
         ' Each session's seed = sessionNum * 12345 so sequences are stable across
         ' runs but distinct from each other. Mode 2 picks one of these.
-        For s As Integer = 1 To 10
+        For s As Integer = 1 To 20
             fixedSequences(s - 1) = GenerateSeededSequence(s * 12345)
         Next
 
-        ' Populate session-number dropdown (1-10)
-        For s As Integer = 1 To 10
+        ' Populate session-number dropdown (1-20)
+        For s As Integer = 1 To 20
             cmbSessionNumber.Items.Add(s.ToString())
         Next
         cmbSessionNumber.SelectedIndex = 0  ' default to session 1
@@ -779,9 +775,9 @@ Class SafetyPop
     ' ============================================
     ' UNIFIED TOUCH HANDLER
     ' ============================================
-    ' Unified handler for both MouseDown and MouseEnter on stim rects.
+    ' Touch handler for MouseDown on stim rects (press/tap only).
     ' Signature uses MouseEventArgs (parent class of MouseButtonEventArgs)
-    ' so it can receive both event types. The handler doesn't use 'e'
+    ' so it receives the MouseDown event. The handler doesn't use 'e'
     ' for anything — all needed info comes from sender (the Rectangle).
     Private Sub StimTouched(sender As Object, e As MouseEventArgs)
 
@@ -1728,7 +1724,7 @@ Class SafetyPop
     Private Async Sub FinishTrial(completedBy As String)
 
         trialActive = False
-        dingSound.Play()
+        My.Settings.Pelletgo = True
         trialStopwatch.Stop()
 
         KillAll()
@@ -1980,7 +1976,7 @@ Class SafetyPop
     ' ============================================
     ' SEQUENCE GENERATION
     ' GenerateSeededSequence builds a deterministic shuffle of the canonical
-    ' 60 codes from a fixed seed -- used for the 10 fixed sequences in Mode 2.
+    ' 60 codes from a fixed seed -- used for the 20 fixed sequences in Mode 2.
     ' GenerateRandomSequence uses the shared Rng for Mode 1.
     ' ============================================
     Private Function GenerateSeededSequence(seed As Integer) As String()

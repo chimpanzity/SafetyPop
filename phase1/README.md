@@ -36,7 +36,7 @@ sessions differ by a few rows from the keep-earliest merge over the full file se
 
 | Path | Contents |
 |---|---|
-| `app/` | Task source, v1.0 as of 2026-05-12, with its `Stim/` assets |
+| `app/` | Task source, the 2026-06-15 build (MouseDown only, 20 session sequences), with every `Stim/` asset it loads |
 | `demo/` | Browser demo of the task (React) |
 | `data/raw/<Subject>/` | 148 session files, exactly as saved; `Unassigned/` holds three files whose subject the name does not give |
 | `data/processed/` | 39 merged sessions with audit logs, the August compiled workbooks, and `SafetyPop_AllSubjects_AllSessions.xlsx` (every session, built by `analysis/compile_sessions.py`) |

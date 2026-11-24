@@ -7,11 +7,16 @@
 | `SafetyPop.xaml`, `SafetyPop.xaml.vb` | The Phase 1 task: a WPF `Page` in VB.NET |
 | `Set0empty.xaml`, `Set0empty.xaml.vb` | An empty page, kept as it was stored with the task source |
 
-Version: **v1.0 as of 2026-05-12**. This copy has:
+Version: **the build of 2026-06-15** from the ApeTouch master copy (`ApeTouch_18Apex_Master`,
+last built 2026-09-15). Compared with v1.0 of 2026-05-12, which is in this file's git history
+(commit `0ba37bb`), it:
 
-- the canonical 60-trial composition (`canonical60Codes`)
-- 10 fixed session sequences, each a seeded shuffle of the 60 codes (seed = session number x 12345)
-- touches registered on both `MouseDown` and `MouseEnter`, so sliding onto a stimulus counts as a touch
+- registers touches on `MouseDown` only; v1.0 also counted `MouseEnter`, so sliding onto a stimulus
+  registered as a touch. Rowena's sessions 1 to 10 were collected with the v1.0 behaviour
+- generates 20 fixed session sequences instead of 10 (seeded shuffles of `canonical60Codes`,
+  seed = session number x 12345), which is what allowed sessions 11 to 20
+
+`SafetyPop.xaml` is unchanged between the two.
 
 ## Not a standalone project
 
@@ -32,12 +37,13 @@ screen (1024 x 768) on the right.
 
 | Kind | Files | In the repository |
 |---|---|---|
-| Stimulus images | `Control.png` (bubble), `Anger.png`, `Neutral.png` | yes |
-| Stimulus images | `Happy.png`, `Fear.png` | **no** |
+| Stimulus images | `Control.png` (bubble), `Anger.png`, `Happy.png`, `Fear.png`, `Neutral.png` | yes |
 | Background | `pmac_back1.png` | yes |
-| Sounds | `Bubble.wav`, `Click.wav`, `boop1.wav`, `DingDing.wav`, `silence.wav` | **no** |
+| Sounds | `Bubble.wav`, `Click.wav`, `boop1.wav`, `DingDing.wav`, `silence.wav` | yes |
 
-Inverted faces (probe distractors) are the same images flipped in XAML, not separate files.
+Inverted faces (probe distractors) are the same images flipped in XAML. `Anger_inv.png`,
+`Happy_inv.png` and `Fear_inv.png` sit in the master copy's `Stim/` folder and are included, but the
+source does not load them. The page has every asset it needs from this copy.
 
 The page will not run from this copy until the five missing files are added.
 

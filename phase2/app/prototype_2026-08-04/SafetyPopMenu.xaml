@@ -1,0 +1,74 @@
+<Page x:Class="SafetyPopMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+      mc:Ignorable="d"
+      d:DesignHeight="1080" d:DesignWidth="2944"
+      Title="SafetyPopMenu" x:Name="StartPage" Height="1080" Width="2944"
+      AllowDrop="False" Background="LightGray">
+
+    <Grid Name="Wholegrid" Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1920"/>
+            <ColumnDefinition Width="1024"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Title (matches DotMenu / MTSMenu convention) -->
+        <Label Width="1920" Height="200" Margin="0,20,0,0" Content="SafetyPop"
+               FontSize="128" Foreground="Azure" HorizontalContentAlignment="Center"
+               VerticalAlignment="Top" FontWeight="Light" Panel.ZIndex="10" Opacity=".5"/>
+
+        <Grid Name="ControlScreen" Width="1920" Height="1080" Grid.Column="0"
+              Background="#303030">
+
+            <!-- Background image (same asset the Dot menu uses) -->
+            <Rectangle HorizontalAlignment="Left" Opacity="1" Height="1080" Stroke="transparent"
+                       VerticalAlignment="Top" Width="1920" Panel.ZIndex="-5">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="stimuli/KCBack3.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <!-- Two task buttons: v1 (original oddity) and v2 (discrimination) -->
+            <Grid Width="1400" Height="360" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ==== SafetyPop v1 (original) ==== -->
+                <Button Grid.Column="0" Name="SP1But" FontSize="36" FontWeight="Light" Opacity=".95" Cursor="Hand">
+                    <Button.Background>
+                        <SolidColorBrush Color="Orange" Opacity=".12"/>
+                    </Button.Background>
+                    <StackPanel Margin="20">
+                        <Label Content="SafetyPop v1" Foreground="Azure" FontSize="52" FontWeight="Light"
+                               HorizontalContentAlignment="Center"/>
+                        <Label Content="Original — oddity task" Foreground="#FFB74D" FontSize="26"
+                               HorizontalContentAlignment="Center" Margin="0,10,0,0"/>
+                        <Label Content="emotional-face stimuli, find the odd one out" Foreground="Gray" FontSize="20"
+                               HorizontalContentAlignment="Center" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- ==== SafetyPop v2 (discrimination) ==== -->
+                <Button Grid.Column="2" Name="SP2But" FontSize="36" FontWeight="Light" Opacity=".95" Cursor="Hand">
+                    <Button.Background>
+                        <SolidColorBrush Color="#3AF0FA" Opacity=".18"/>
+                    </Button.Background>
+                    <StackPanel Margin="20">
+                        <Label Content="SafetyPop v2" Foreground="Azure" FontSize="52" FontWeight="Light"
+                               HorizontalContentAlignment="Center"/>
+                        <Label Content="Simplified — discrimination task" Foreground="#7FD1FF" FontSize="26"
+                               HorizontalContentAlignment="Center" Margin="0,10,0,0"/>
+                        <Label Content="always touch the black diamond" Foreground="Gray" FontSize="20"
+                               HorizontalContentAlignment="Center" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
