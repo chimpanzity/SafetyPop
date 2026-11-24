@@ -20,6 +20,8 @@ Because the target polarity alternates across trials, the task cannot be solved 
 
 Design: `docs/SafetyPop_Phase2_TrialDesign.pdf` is a two-page overview (15 Sept 2026); the full
 text is in `docs/SafetyPop_Phase2_TrialDesign.md` and `docs/SafetyPop_Phase2_TrialTypeNames.md`.
+Where they differ, the `.md` files are current: the break-even is defined there on cost (a 4-stim
+array cleared in fewer than 8 touches), which the PDF expresses as "per-stage accuracy" of 0.5.
 
 ## Data collected so far
 

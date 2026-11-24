@@ -116,8 +116,17 @@ Oddity array costs an expected N(N+1)/2 touches; competent responding costs ~N. 
 
 B is the only cell that crosses. Phase 1 data confirm the pre-learning state: bubble
 preference was weakest in B (76.8%), exactly what near-indifference at chance-level
-competence should look like. Per-stage accuracy of 0.5 is the approximate break-even at
-which B inverts.
+competence should look like.
+
+**Where B inverts.** The break-even is defined on cost: B inverts once a 4-stim array costs
+fewer than 8 touches, measured as touches to clear the forced 4-stim arrays (Type I). On an
+accuracy scale this is touch accuracy p, the share of a subject's touches on arrays of one
+size that hit the target. Clearing an N-stim array takes exactly N target touches, so cost is
+N / p, Oddity is the cheaper route once p > N_odd / N_bub, and B inverts at p = 0.5. Chance
+touch accuracy is 2/(N+1): 0.4 on a 4-stim array and 0.22 on an 8-stim array. Touch accuracy
+is not the per-stage accuracy the Phase 2 analysis reports (the first-touch hit rate at stages
+with two or more stimuli, chance 0.36 and 0.25). That measure tracks competence for H2 and
+dates its onset, but 0.5 is not its break-even.
 
 **Primary hypotheses:**
 
@@ -127,8 +136,8 @@ which B inverts.
   chance. The transition may be abrupt ("lightbulb") rather than gradual; no gradualness
   is assumed or required.
 - **H3 (the flip — key metacognitive prediction)** — Oddity choice in Type B increases
-  when, and only when, the subject's own per-stage accuracy (estimated from forced I/J
-  trials) crosses the ~0.5 break-even. The flip should be time-locked to each subject's
+  when, and only when, the subject's own cost on forced 4-stim arrays (Type I) falls below
+  the 8-touch break-even (touch accuracy above 0.5). The flip should be time-locked to each subject's
   own competence crossing, not to session number.
 - **H4 (selectivity controls)** — Type C does not flip at any competence level (Oddity
   never becomes cheaper there); A and D drift toward indifference. A general shift toward
@@ -150,7 +159,7 @@ which B inverts.
 - **Trial resolution, not session resolution.** If the competence transition is abrupt and
   early, session aggregates will smear it. Competence (I/J accuracy) and choice (B-cell
   first-task-completed) are modelled at trial resolution using the discrete-time
-  event-history framework developed in Phase 1, with the accuracy crossing estimated per
+  event-history framework developed in Phase 1, with the break-even crossing estimated per
   subject (e.g., change-point fit) and choice modelled as a function of
   competence-relative time, not calendar time.
 - **Scenario handling.** If a subject is above break-even from session 1 (pop-out too

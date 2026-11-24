@@ -1,7 +1,8 @@
 # SafetyPop Phase 2 — Trial-Type Names
 
 Companion to `SafetyPop_Phase2_TrialDesign.md` and the PDF overview `SafetyPop_Phase2_TrialDesign.pdf`
-(15 Sept 2026), both in this folder. Type letters A–J are unchanged
+(15 Sept 2026), both in this folder. The PDF is a snapshot from that date and calls p
+"per-stage accuracy"; the definition below is current. Type letters A–J are unchanged
 from Phase 1 and from the app's trial codes; the names below are labels for the same types.
 
 ## Framework
@@ -9,9 +10,9 @@ from Phase 1 and from the app's trial codes; the names below are labels for the 
 Every dual-task trial offers two routes to the reward:
 
 - **Bubble Pop = physical-effort route.** Fixed, known cost: N_bub touches. No skill required.
-- **Oddity = cognitive-effort route.** Cost depends on competence. With per-stage accuracy p under
-  progressive elimination, expected cost is N_odd / p touches: N_odd(N_odd+1)/2 at chance
-  (10 for 4-stim, 36 for 8-stim), N_odd at mastery.
+- **Oddity = cognitive-effort route.** Cost depends on competence. With touch accuracy p (the share
+  of touches on the array that hit the target), expected cost under progressive elimination is
+  N_odd / p touches: N_odd(N_odd+1)/2 at chance (10 for 4-stim, 36 for 8-stim), N_odd at mastery.
 
 Two factors, two levels each:
 
@@ -22,6 +23,10 @@ Break-even: Oddity is the cheaper route once p > p* = N_odd / N_bub. Only B has 
 break-even (0.5); C has none; A and D reach parity only at p = 1. The four route-choice cells are
 named for that trajectory. Two-letter codes give physical then cognitive level (HL = High physical,
 Low cognitive).
+
+In touches, B's break-even is a 4-stim array cleared in fewer than 8, read from the forced 4-stim
+type (I). Touch accuracy is not the per-stage accuracy the Phase 2 analysis reports (the first-touch
+hit rate at stages with two or more stimuli); 0.5 is the break-even on the touch-accuracy scale only.
 
 ## Route choice (dual task) — the 2 × 2, 32 trials per session
 
