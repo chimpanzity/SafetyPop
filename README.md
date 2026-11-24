@@ -36,7 +36,7 @@ Each folder with something to explain has its own `README.md`.
 | Trials per session | 60 | 50 |
 | Planned sessions per subject | 10 | 10 |
 | Raw file prefix | `SafetyPop_` | `SafetyPop2_` |
-| Design | `docs/SafetyPop_TrialDesign_430Final.pdf` | `docs/SafetyPop_Phase2_TrialDesign.md`, `docs/SafetyPop_Phase2_TrialTypeNames.md` |
+| Design | `docs/SafetyPop_TrialDesign_430Final.pdf` | `docs/SafetyPop_Phase2_TrialDesign.pdf` (overview); full text in `docs/SafetyPop_Phase2_TrialDesign.md` and `docs/SafetyPop_Phase2_TrialTypeNames.md` |
 
 The Phase 1 preregistration text (AsPredicted, H1 to H9) is in `docs/SafetyPop_Preregistration.pdf`.
 

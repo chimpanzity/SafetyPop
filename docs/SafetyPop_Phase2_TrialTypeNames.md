@@ -1,7 +1,7 @@
 # SafetyPop Phase 2 — Trial-Type Names
 
 Companion to `SafetyPop_Phase2_TrialDesign.md` and the PDF overview `SafetyPop_Phase2_TrialDesign.pdf`
-(delivered 15 Sept 2026; the PDF itself lives outside the project docs). Type letters A–J are unchanged
+(15 Sept 2026), both in this folder. Type letters A–J are unchanged
 from Phase 1 and from the app's trial codes; the names below are labels for the same types.
 
 ## Framework
