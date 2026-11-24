@@ -17,14 +17,14 @@ appended via ADD_SOURCEFILE_COLUMN.
 
 # ============================ PARAMETERS =================================
 # Paths are relative to the repository root. Edit this block per merge; the
-# example below is the Rowena session 9 merge that is already in data/processed/phase1/.
+# example below is the Rowena session 9 merge that is already in phase1/data/processed/.
 SOURCE_FILES = [
     # List in chronological order (earliest visit first).
-    "data/raw/phase1/Rowena/Partials/SafetyPop_TestSubject_S9_06-08-2026_13-23-59_Rowena40.txt",
-    "data/raw/phase1/Rowena/Partials/SafetyPop_TestSubject_S9_06-10-2026_13-17-30_rowena_finsh.txt",
+    "phase1/data/raw/Rowena/Partials/SafetyPop_TestSubject_S9_06-08-2026_13-23-59_Rowena40.txt",
+    "phase1/data/raw/Rowena/Partials/SafetyPop_TestSubject_S9_06-10-2026_13-17-30_rowena_finsh.txt",
 ]
-OUTPUT_FILE = "data/processed/phase1/merged_sessions/SafetyPop_TestSubject_S9_MERGED_rowena.txt"
-AUDIT_FILE  = "data/processed/phase1/merge_logs/SafetyPop_TestSubject_S9_MERGED_rowena_auditlog.txt"
+OUTPUT_FILE = "phase1/data/processed/merged_sessions/SafetyPop_TestSubject_S9_MERGED_rowena.txt"
+AUDIT_FILE  = "phase1/data/processed/merge_logs/SafetyPop_TestSubject_S9_MERGED_rowena_auditlog.txt"
 
 DELIM                  = " , "   # space-comma-space, as written by the app
 EXPECTED_TRIALS        = 60      # full session length; None to skip the check

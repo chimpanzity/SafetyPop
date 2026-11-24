@@ -2,10 +2,12 @@
 * text=auto
 
 # Raw session files are stored byte for byte (the app writes CRLF). No conversion, ever.
-data/raw/** -text
+phase1/data/raw/** -text
+phase2/data/raw/** -text
 
 # Merged datasets are byte-stable too: they hold rows copied verbatim from raw files
-data/processed/** -text
+phase1/data/processed/** -text
+phase2/data/processed/** -text
 
 # Visual Studio sources check out with CRLF
 *.vb     text eol=crlf

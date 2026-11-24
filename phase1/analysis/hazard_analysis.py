@@ -13,7 +13,7 @@ import statsmodels.api as sm
 warnings.filterwarnings("ignore")
 pd.set_option("display.width", 220)
 
-XLSX = "data/processed/phase1/SafetyPop_AllSubjects_CompleteSessions.xlsx"
+XLSX = "phase1/data/processed/SafetyPop_AllSubjects_CompleteSessions.xlsx"
 SUBJECTS = ["Arthur", "Ben", "Billy", "Evelyn", "Rowena"]
 MIN_RISK = 15          # suppress hazard estimates from risk sets smaller than this
 
@@ -219,7 +219,7 @@ for s in SUBJECTS:
                 "z": fs.tvalues["cum_err"]})
 print(pd.DataFrame(out).round(2).to_string(index=False))
 
-h.to_csv("data/processed/phase1/hazard_pooled.csv", index=False)
-tr.to_csv("data/processed/phase1/hazard_trials.csv", index=False)
-ev.to_csv("data/processed/phase1/hazard_events.csv", index=False)
+h.to_csv("phase1/data/processed/hazard_pooled.csv", index=False)
+tr.to_csv("phase1/data/processed/hazard_trials.csv", index=False)
+ev.to_csv("phase1/data/processed/hazard_events.csv", index=False)
 print("\n[saved hazard_pooled.csv, hazard_trials.csv, hazard_events.csv]")

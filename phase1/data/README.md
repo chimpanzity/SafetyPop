@@ -1,18 +1,16 @@
-# Data
+# Data — Phase 1
 
 ## Layout
 
 ```
 data/
   raw/
-    phase1/<Subject>/             Phase 1 session files (SafetyPop_*.txt), exactly as saved
-    phase1/<Subject>/Partials/    session files that do not hold all 60 trials
-    phase2/<Subject>/             Phase 2 session files (SafetyPop2_*.txt), exactly as saved
+    <Subject>/                    session files (SafetyPop_*.txt), exactly as saved
+    <Subject>/Partials/           session files that do not hold all 60 trials
   processed/
-    phase1/merged_sessions/       one 60-trial file per multi-visit session
-    phase1/merge_logs/            audit log for each merge
-    phase1/*.xlsx                 compiled workbooks
-    phase2/                       same, once Phase 2 is merged
+    merged_sessions/              one 60-trial file per multi-visit session
+    merge_logs/                   audit log for each merge
+    *.xlsx                        compiled workbooks
 ```
 
 A file sits in `Partials/` when it does not contain trials 1 to 60. That is decided by reading the
@@ -20,7 +18,7 @@ file, not from its name: several files the operator named "finished" hold only t
 session, and several outside a partials folder in the collection machine's own layout are partial.
 The merge step works from file contents, so the folder is for a reader's benefit only.
 
-`.gitattributes` marks everything under `data/raw/` and `data/processed/` as `-text`, so git
+`.gitattributes` marks everything under `phase1/data/` as `-text`, so git
 stores those files byte for byte and never converts their line endings.
 
 ## Raw session files
@@ -110,7 +108,7 @@ Backup depth is set by the operator at each resume, not fixed. Observed depths a
 (Ben 1, Billy 3, Evelyn 4) resumed at a trial well inside already-completed territory, which is
 the failure mode that can leave a forward gap.
 
-## What is in `data/processed/phase1/`
+## What is in `data/processed/`
 
 | Path | Contents |
 |---|---|
@@ -120,7 +118,7 @@ the failure mode that can leave a forward gap.
 | `SafetyPop_AllSubjects_Overview_v2.xlsx` | Earlier cross-subject overview from the collection machine. |
 | `SafetyPop_Arthur_AllSessions.xlsx` | Arthur's sessions, compiled on the collection machine. |
 
-Every file in `phase1/merged_sessions/` has been checked against `data/raw/phase1/`: all 20 hold trials
+Every file in `merged_sessions/` has been checked against `data/raw/`: all 20 hold trials
 1 to 60 with no gaps or duplicates, and every row is byte-identical to a row in a raw file for
 that subject and session.
 

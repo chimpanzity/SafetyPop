@@ -1,6 +1,6 @@
-# Results
+# Results — Phase 1
 
-Outputs of the analyses in `analysis/`, built from `data/processed/phase1/`. Nothing here is edited by
+Outputs of the analyses in `analysis/`, built from `../data/processed/`. Nothing here is edited by
 hand, and nothing here is an input to anything else.
 
 | File | What it is |
@@ -15,5 +15,5 @@ Descriptive and, except where they map onto the preregistration, exploratory. Th
 and cost models were developed after data collection and are labelled as exploratory in the
 summary. With five subjects, between-subject correlations are indicative only.
 
-The scripts that produced the summary PDF and Figure 1 are not yet in `analysis/` (see that
+The scripts that produced the summary PDF and Figure 1 are not yet in `../analysis/` (see that
 folder's README). The figures and PDF here are the versions reviewed on 2026-11-24.

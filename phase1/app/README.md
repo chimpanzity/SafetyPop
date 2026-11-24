@@ -1,4 +1,4 @@
-# Task source
+# Task source — Phase 1
 
 ## What is here
 
@@ -30,19 +30,21 @@ screen (1024 x 768) on the right.
 
 ## Assets the page loads from `Stim/`
 
-Not in the repository yet.
-
-| Kind | Files |
-|---|---|
-| Stimulus images | `Control.png` (bubble), `Happy.png`, `Anger.png`, `Fear.png`, `Neutral.png` |
-| Background | `pmac_back1.png` |
-| Sounds | `Bubble.wav`, `Click.wav`, `boop1.wav`, `DingDing.wav`, `silence.wav` |
+| Kind | Files | In the repository |
+|---|---|---|
+| Stimulus images | `Control.png` (bubble), `Anger.png`, `Neutral.png` | yes |
+| Stimulus images | `Happy.png`, `Fear.png` | **no** |
+| Background | `pmac_back1.png` | yes |
+| Sounds | `Bubble.wav`, `Click.wav`, `boop1.wav`, `DingDing.wav`, `silence.wav` | **no** |
 
 Inverted faces (probe distractors) are the same images flipped in XAML, not separate files.
+
+The page will not run from this copy until the five missing files are added.
 
 ## Still to add
 
 - [ ] The Phase 1 source as currently run. Changes made after this copy include extending the
       fixed sequences beyond 10 sessions and removing the `MouseEnter` handlers.
-- [ ] The Phase 2 task source (the build that writes `SafetyPop2_` files)
-- [ ] The `Stim/` folder
+- [ ] `Happy.png` and `Fear.png`, and the five `.wav` files
+
+The Phase 2 task source lives in `../../phase2/app/`.
