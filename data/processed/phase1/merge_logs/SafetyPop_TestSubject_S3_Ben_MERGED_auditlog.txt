@@ -1,0 +1,32 @@
+SafetyPop merge audit log
+Generated: 2026-08-02 17:46:07
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  06-16-2026  SafetyPop_TestSubject_S3_06-16-2026_13-38-33_Ben19.txt  n=20  trials 1-20
+  06-17-2026  SafetyPop_TestSubject_S3_06-17-2026_13-10-08Ben_session3Trial18-60.txt  n=45  trials 16-60
+
+OUTPUT: SafetyPop_TestSubject_S3_Ben_MERGED.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-20   <- SafetyPop_TestSubject_S3_06-16-2026_13-38-33_Ben19.txt
+  trials  21-60   <- SafetyPop_TestSubject_S3_06-17-2026_13-10-08Ben_session3Trial18-60.txt
+
+OVERLAP / DISCARDED ROWS (n=5):
+  Trial 16: kept SafetyPop_TestSubject_S3_06-16-2026_13-38-33_Ben19.txt (06-16-2026), discarded SafetyPop_TestSubject_S3_06-17-2026_13-10-08Ben_session3Trial18-60.txt (06-17-2026)
+    design Code: kept=A1R discarded=A1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 17: kept SafetyPop_TestSubject_S3_06-16-2026_13-38-33_Ben19.txt (06-16-2026), discarded SafetyPop_TestSubject_S3_06-17-2026_13-10-08Ben_session3Trial18-60.txt (06-17-2026)
+    design Code: kept=I3L discarded=I3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 18: kept SafetyPop_TestSubject_S3_06-16-2026_13-38-33_Ben19.txt (06-16-2026), discarded SafetyPop_TestSubject_S3_06-17-2026_13-10-08Ben_session3Trial18-60.txt (06-17-2026)
+    design Code: kept=A6L discarded=A6L  MATCH
+    fields differing: Date, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 19: kept SafetyPop_TestSubject_S3_06-16-2026_13-38-33_Ben19.txt (06-16-2026), discarded SafetyPop_TestSubject_S3_06-17-2026_13-10-08Ben_session3Trial18-60.txt (06-17-2026)
+    design Code: kept=E0L discarded=E0L  MATCH
+    fields differing: Date, LeftPositions, RightPositions, BubTouches, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 20: kept SafetyPop_TestSubject_S3_06-16-2026_13-38-33_Ben19.txt (06-16-2026), discarded SafetyPop_TestSubject_S3_06-17-2026_13-10-08Ben_session3Trial18-60.txt (06-17-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates

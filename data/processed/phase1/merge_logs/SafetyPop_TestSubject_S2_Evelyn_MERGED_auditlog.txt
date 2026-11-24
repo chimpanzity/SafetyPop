@@ -1,0 +1,29 @@
+SafetyPop merge audit log
+Generated: 2026-08-02 17:52:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  06-11-2026  SafetyPop_TestSubject_S2_06-11-2026_13-15-36_Evelyn49.txt  n=49  trials 1-49
+  06-17-2026  SafetyPop_TestSubject_S2_06-17-2026_13-11-35Evelinefinished.txt  n=15  trials 46-60
+
+OUTPUT: SafetyPop_TestSubject_S2_Evelyn_MERGED.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-49   <- SafetyPop_TestSubject_S2_06-11-2026_13-15-36_Evelyn49.txt
+  trials  50-60   <- SafetyPop_TestSubject_S2_06-17-2026_13-11-35Evelinefinished.txt
+
+OVERLAP / DISCARDED ROWS (n=4):
+  Trial 46: kept SafetyPop_TestSubject_S2_06-11-2026_13-15-36_Evelyn49.txt (06-11-2026), discarded SafetyPop_TestSubject_S2_06-17-2026_13-11-35Evelinefinished.txt (06-17-2026)
+    design Code: kept=B1R discarded=B1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 47: kept SafetyPop_TestSubject_S2_06-11-2026_13-15-36_Evelyn49.txt (06-11-2026), discarded SafetyPop_TestSubject_S2_06-17-2026_13-11-35Evelinefinished.txt (06-17-2026)
+    design Code: kept=J2L discarded=J2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 48: kept SafetyPop_TestSubject_S2_06-11-2026_13-15-36_Evelyn49.txt (06-11-2026), discarded SafetyPop_TestSubject_S2_06-17-2026_13-11-35Evelinefinished.txt (06-17-2026)
+    design Code: kept=G0L discarded=G0L  MATCH
+    fields differing: Date, LeftPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 49: kept SafetyPop_TestSubject_S2_06-11-2026_13-15-36_Evelyn49.txt (06-11-2026), discarded SafetyPop_TestSubject_S2_06-17-2026_13-11-35Evelinefinished.txt (06-17-2026)
+    design Code: kept=B2R discarded=B2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates

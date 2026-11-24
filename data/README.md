@@ -5,16 +5,23 @@
 ```
 data/
   raw/
-    phase1/<Subject>/    Phase 1 session files (SafetyPop_*.txt), exactly as saved
-    phase2/<Subject>/    Phase 2 session files (SafetyPop2_*.txt), exactly as saved
-  processed/             built from raw/ by the scripts in analysis/
+    phase1/<Subject>/             Phase 1 session files (SafetyPop_*.txt), exactly as saved
+    phase1/<Subject>/Partials/    session files that do not hold all 60 trials
+    phase2/<Subject>/             Phase 2 session files (SafetyPop2_*.txt), exactly as saved
+  processed/
+    phase1/merged_sessions/       one 60-trial file per multi-visit session
+    phase1/merge_logs/            audit log for each merge
+    phase1/*.xlsx                 compiled workbooks
+    phase2/                       same, once Phase 2 is merged
 ```
 
-Keep whatever subfolders the collection machine uses inside a subject's folder (for example a
-folder of partial files). The merge step works from file contents, not from folder names.
+A file sits in `Partials/` when it does not contain trials 1 to 60. That is decided by reading the
+file, not from its name: several files the operator named "finished" hold only the tail of a
+session, and several outside a partials folder in the collection machine's own layout are partial.
+The merge step works from file contents, so the folder is for a reader's benefit only.
 
-`.gitattributes` marks everything under `data/raw/` as `-text`, so git stores those files byte
-for byte and never converts their line endings.
+`.gitattributes` marks everything under `data/raw/` and `data/processed/` as `-text`, so git
+stores those files byte for byte and never converts their line endings.
 
 ## Raw session files
 
@@ -91,9 +98,47 @@ file, the row from the earliest file is kept and the later ones are dropped. The
 retained rows verbatim, records the source file of every row, and logs each dropped row next to
 the row kept in its place.
 
+Why earliest. Overlapping rows are not duplicates. `Code` regenerates identically on resume, so
+the design cell is reproducible, but `TargetCellPos` and the position grids are re-randomised, so
+the later row is a fresh layout of the same cell. The later row also sits at the start of a visit,
+where warm-up shows up as a long first-touch latency. Keeping the earliest row keeps the trial as
+first encountered. It does not always give the better-looking record: Evelyn session 5 trial 4 is
+retained at 121 s, almost all of it dead time, while the discarded 07-30 row ran 27 s.
+
+Backup depth is set by the operator at each resume, not fixed. Observed depths across Phase 1 are
+0 (a clean butt joint, Billy session 6), 2, 3, 4, 5, 6, 7 and one case of 17. Three sessions
+(Ben 1, Billy 3, Evelyn 4) resumed at a trial well inside already-completed territory, which is
+the failure mode that can leave a forward gap.
+
+## What is in `data/processed/phase1/`
+
+| Path | Contents |
+|---|---|
+| `merged_sessions/` | 20 merged session files, one per multi-visit session. Each holds trials 1 to 60. |
+| `merge_logs/` | Audit log per merge: source files in date order, provenance by block, and a field-by-field diff of every overlap trial. 15 of the 20 merges have one; the five made before the audit log existed (Arthur 4, Billy 1, Evelyn 1, Rowena 5, Rowena 6) do not. |
+| `SafetyPop_AllSubjects_CompleteSessions.xlsx` | Master workbook: 41 complete sessions, 2,460 trials, one sheet per subject plus a Summary sheet. Merged and single-visit sessions, with a `SourceFile` column per row. Excludes Arthur session 8, whose three partials cover trials 1 to 46 only. |
+| `SafetyPop_AllSubjects_Overview_v2.xlsx` | Earlier cross-subject overview from the collection machine. |
+| `SafetyPop_Arthur_AllSessions.xlsx` | Arthur's sessions, compiled on the collection machine. |
+
+Every file in `phase1/merged_sessions/` has been checked against `data/raw/phase1/`: all 20 hold trials
+1 to 60 with no gaps or duplicates, and every row is byte-identical to a row in a raw file for
+that subject and session.
+
 ## Provenance notes
 
 - Touch registration changed during Phase 1. The v1.0 build registers a touch on `MouseDown` and
   on `MouseEnter`; a later build uses `MouseDown` only. Rowena's sessions 1 to 10 were collected
   with the `MouseEnter` build.
 - [ ] Record which build each of the other sessions used.
+- `TargetCellPos` is set at trial setup and never reassigned. After each correct target touch the
+  app kills the target and draws a new one at random from the surviving distractors, so the
+  recorded cell is valid only until the first correct touch. Any analysis that needs the target's
+  position later in a trial cannot get it from these files. Logging the current target cell per
+  touch is on the list for the Phase 2 build.
+- A session can span a month. Billy session 9 spans 32 days and Ben session 5 spans 33, so
+  position within a session is not a usable time proxy for those.
+- `CompletedBy` differs between the two instances of an overlap trial in 8 cases across Phase 1,
+  4 of them on type B trials.
+- Evelyn's files carry long mid-trial gaps far more often than the others: about 6 percent of her
+  trials have a gap over 30 s inside the touch log or before the first touch, against 0.5 to 1.7
+  percent for the other four. Her raw latency means are not usable without a stall filter.

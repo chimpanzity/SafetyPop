@@ -1,0 +1,69 @@
+SafetyPop merge audit log
+Generated: 2026-08-02 17:37:32
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  06-01-2026  SafetyPop_TestSubject_S1_06-01-2026_13-02-27_Ben_0-31.txt  n=32  trials 1-32
+  06-02-2026  SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt  n=16  trials 28-43
+  06-04-2026  SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt  n=8  trials 41-48
+  06-10-2026  SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt  n=20  trials 41-60
+
+OUTPUT: SafetyPop_TestSubject_S1_Ben_MERGED.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-32   <- SafetyPop_TestSubject_S1_06-01-2026_13-02-27_Ben_0-31.txt
+  trials  33-43   <- SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt
+  trials  44-48   <- SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt
+  trials  49-60   <- SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt
+
+OVERLAP / DISCARDED ROWS (n=16):
+  Trial 28: kept SafetyPop_TestSubject_S1_06-01-2026_13-02-27_Ben_0-31.txt (06-01-2026), discarded SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026)
+    design Code: kept=H0L discarded=H0L  MATCH
+    fields differing: Date, LeftPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 29: kept SafetyPop_TestSubject_S1_06-01-2026_13-02-27_Ben_0-31.txt (06-01-2026), discarded SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026)
+    design Code: kept=J1L discarded=J1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 30: kept SafetyPop_TestSubject_S1_06-01-2026_13-02-27_Ben_0-31.txt (06-01-2026), discarded SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026)
+    design Code: kept=F2R discarded=F2R  MATCH
+    fields differing: Date, LeftPositions, RightPositions, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 31: kept SafetyPop_TestSubject_S1_06-01-2026_13-02-27_Ben_0-31.txt (06-01-2026), discarded SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026)
+    design Code: kept=A4R discarded=A4R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 32: kept SafetyPop_TestSubject_S1_06-01-2026_13-02-27_Ben_0-31.txt (06-01-2026), discarded SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026)
+    design Code: kept=B1L discarded=B1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 41: kept SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026), discarded SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026)
+    design Code: kept=B2L discarded=B2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 42: kept SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026), discarded SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 43: kept SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026), discarded SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026)
+    design Code: kept=G0L discarded=G0L  MATCH
+    fields differing: Date, LeftPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 41: kept SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=B2L discarded=B2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 42: kept SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 43: kept SafetyPop_TestSubject_S1_06-02-2026_13-42-09_Ben43.txt (06-02-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=G0L discarded=G0L  MATCH
+    fields differing: Date, LeftPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 44: kept SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=I6R discarded=I6R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 45: kept SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=F1R discarded=F1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 46: kept SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=A4L discarded=A4L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 47: kept SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=A1L discarded=A1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, BubTouches, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 48: kept SafetyPop_TestSubject_S1_06-04-2026_13-25-46_ben48.txt (06-04-2026), discarded SafetyPop_TestSubject_S1_06-10-2026_13-05-43ben_finish.txt (06-10-2026)
+    design Code: kept=A6L discarded=A6L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates

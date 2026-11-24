@@ -20,8 +20,9 @@ Investigators: Christopher Flynn Martin (Indianapolis Zoo) and Jennifer Vonk (Oa
 | `app/` | Task source: a WPF page (VB.NET, XAML) that runs inside ApeTouch |
 | `demo/` | Browser demo of the Phase 1 task (React) |
 | `data/raw/` | Session files exactly as saved by the app. Never edited. |
-| `data/processed/` | Merged datasets built from `data/raw/` by the scripts in `analysis/` |
+| `data/processed/` | Merged datasets and compiled workbooks, built from `data/raw/` by the scripts in `analysis/` |
 | `analysis/` | Merge and analysis scripts (Python) |
+| `results/` | Figures and write-ups produced by `analysis/` |
 | `docs/` | Preregistration and trial designs |
 
 Each folder with something to explain has its own `README.md`.
@@ -66,18 +67,36 @@ target's own emotion. Per-session counts and counterbalancing are in the design 
 3. When a session spans more than one visit, overlapping trials are resolved with the
    keep-earliest rule described in `data/README.md`.
 
+## Data collected so far
+
+Phase 1, five chimpanzees, collection running 2026-05-19 to 2026-07-30.
+
+| Subject | Complete sessions | Trials | Of those, merged from more than one visit |
+|---|---|---|---|
+| Arthur | 1 to 7 | 420 | 1 |
+| Ben | 1 to 9 | 540 | 5 |
+| Billy | 1 to 10 | 600 | 6 |
+| Evelyn | 1 to 5 | 300 | 5 |
+| Rowena | 1 to 10 | 600 | 3 |
+| **Total** | **41** | **2,460** | **20** |
+
+One session is incomplete and is excluded from the master workbook: **Arthur session 8**, whose
+three partial files cover trials 1 to 46. Trials 47 to 60 are not in any file.
+
 ## Status (2026-11-24)
 
 In the repository:
 
 - `app/`: Phase 1 task source, v1.0 as of 2026-05-12
 - `demo/`: Phase 1 browser demo
-- `data/raw/phase1/`: two session files (Arthur S1 and Rowena S1, both 2026-05-19)
-- `docs/`: preregistration, Phase 1 and Phase 2 trial designs
+- `data/raw/phase1/`: all 70 Phase 1 session files, complete and partial, for all five subjects
+- `data/processed/phase1/`: 20 merged sessions with 15 audit logs, and three compiled workbooks
+- `analysis/`: the session merger and the within-trial hazard analysis
+- `results/`: Experiment 1 summary and figures
+- `docs/`: preregistration, Phase 1 and Phase 2 trial designs, session metrics template
 
 Still to add:
 
-- [ ] Raw session files for all other sessions, both phases
 - [ ] Current task source for both phases, with the `Stim/` images and sounds
-- [ ] Merge and analysis scripts
-- [ ] Merged datasets, rebuilt from `data/raw/` once the raw files are in
+- [ ] The remaining analysis scripts (see `analysis/README.md`)
+- [ ] Audit logs for the five merges made before the merger wrote them

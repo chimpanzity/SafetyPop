@@ -1,0 +1,23 @@
+SafetyPop merge audit log
+Generated: 2026-08-02 17:56:17
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  06-17-2026  SafetyPop_TestSubject_S3_06-17-2026_13-32-59Evelyn26.txt  n=26  trials 1-26
+  06-18-2026  SafetyPop_TestSubject_S3_06-18-2026_13-09-43evelyne_finished.txt  n=36  trials 25-60
+
+OUTPUT: SafetyPop_TestSubject_S3_Evelyn_MERGED.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-26   <- SafetyPop_TestSubject_S3_06-17-2026_13-32-59Evelyn26.txt
+  trials  27-60   <- SafetyPop_TestSubject_S3_06-18-2026_13-09-43evelyne_finished.txt
+
+OVERLAP / DISCARDED ROWS (n=2):
+  Trial 25: kept SafetyPop_TestSubject_S3_06-17-2026_13-32-59Evelyn26.txt (06-17-2026), discarded SafetyPop_TestSubject_S3_06-18-2026_13-09-43evelyne_finished.txt (06-18-2026)
+    design Code: kept=C1R discarded=C1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 26: kept SafetyPop_TestSubject_S3_06-17-2026_13-32-59Evelyn26.txt (06-17-2026), discarded SafetyPop_TestSubject_S3_06-18-2026_13-09-43evelyne_finished.txt (06-18-2026)
+    design Code: kept=G0R discarded=G0R  MATCH
+    fields differing: Date, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates
