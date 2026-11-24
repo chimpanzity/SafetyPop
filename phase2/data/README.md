@@ -58,9 +58,14 @@ more than one file, the row from the earliest file is kept and the later ones ar
 merge keeps retained rows verbatim, records the source file of every row, and logs each dropped
 row next to the row kept in its place.
 
-Six sessions need a merge: Ben 4 and 9, Billy 3, 7, 8 and 9. All six are merged in
-`processed/` by `../analysis/merge_safetypop2.py`; the `Merge Log` sheet of each workbook lists
-every dropped row beside the row kept in its place.
+Every session with more than one file is merged in `processed/` by `../analysis/merge_safetypop2.py`;
+the `Merge Log` sheet of each workbook lists every dropped row beside the row kept in its place.
+Files that were byte-identical copies of another file in the booth dumps were not added
+(`..._S13_09-09-2026_13-31-46_Billyfinished.txt`, `..._S8_09-05-2026_13-39-01_ben_finished.txt`, which
+is Billy's session 8 correction file under the wrong name, and the unnamed twins of the Evelyn S9
+09-15 and Billy S11 09-08 files). Two repository names differ from the booth names because the
+originals contain spaces and parentheses: `_Billy_t34__correct_trial_number_` and
+`_billy_finisehd_correction_`.
 
 ## What is in `processed/`
 
@@ -70,10 +75,22 @@ every dropped row beside the row kept in its place.
 | `SafetyPop2_<Subject>_AllSessions.csv` | The `All Sessions` sheet as CSV |
 | `SafetyPop2_<Subject>_Trials.csv` | One row per trial with the derived measures (first touch, completion, per-stage outcomes, cost, switching, ghost touch); columns defined at the top of `../analysis/derive_safetypop2.py` |
 
-Billy: 18 files, 607 rows read, 548 kept, 59 dropped, sessions 1 to 11. Ben: 13 files, 505 rows
-read, 500 kept, 5 dropped, sessions 1 to 10. Every kept row is byte-identical to its source line.
+Arthur: 25 files, 1,012 rows read, 974 kept. Ben: 17 files, 670 read, 665 kept. Billy: 32 files,
+1,242 read, 998 kept. Evelyn: 19 files, 719 read, 600 kept. Rowena: 11 files, 355 read, 350 kept.
+Every kept row is byte-identical to its source line, and every overlap trial carries the same
+`Code` in both files.
 
 ## Open issues
+
+- **Sessions run twice in full under one number.** Billy 11 (09-08, 09-09), Billy 19 and 20
+  (09-17 west booth, 09-23 east booth), Evelyn 8 (09-09, 09-10). Keep-earliest keeps the first run;
+  the second runs are in the raw folders and in the Merge Log, and are not in the merged dataset.
+- **Restarts rather than resumes.** Billy 18 (21 trials east booth, then a fresh run in the west
+  booth the same day), Evelyn 7 (restarted at trial 27) and 9 (at trial 20), Arthur 1 (a second
+  run on 10-20 of trials 19 to 50 under session 1, two weeks after the complete 10-06 session).
+- **Ben sessions 14 to 18** are in no file; session 19 (09-16) stops at trial 15.
+- **Arthur session 6** stops at trial 24 (10-09).
+- **Unassigned:** a complete session-20 file from the east booth on 10-20 names no subject.
 
 - **Billy session 9 is incomplete.** Coverage is trials 1 to 32 and 35 to 50. Trials 33 and 34
   (one A trial and one I trial) are not in any file, so the session cannot be completed from what

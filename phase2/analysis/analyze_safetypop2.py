@@ -5,7 +5,7 @@
     python phase2/analysis/analyze_safetypop2.py --all
 
 Reads ``phase2/data/processed/SafetyPop2_<Subject>_Trials.csv`` (made by derive_safetypop2.py)
-and, for the Phase 1 comparison, ``phase1/data/processed/SafetyPop_AllSubjects_CompleteSessions.xlsx``.
+and, for the Phase 1 comparison, ``phase1/data/processed/SafetyPop_AllSubjects_AllSessions.xlsx`` (complete sessions only).
 Writes ``phase2/results/results_<Subject>.txt`` and prints the same text.
 
 Sections follow the Phase 2 design document (phase2/docs/SafetyPop_Phase2_TrialDesign.md):
@@ -42,7 +42,7 @@ from scipy import stats
 REPO = Path(__file__).resolve().parents[2]
 PHASE = Path(__file__).resolve().parents[1]
 PROC = PHASE / "data" / "processed"
-PHASE1 = REPO / "phase1" / "data" / "processed" / "SafetyPop_AllSubjects_CompleteSessions.xlsx"
+PHASE1 = REPO / "phase1" / "data" / "processed" / "SafetyPop_AllSubjects_AllSessions.xlsx"
 RESULTS = PHASE / "results"
 DUAL = ["A", "B", "C", "D"]
 CELL_NAMES = {"A": "A 4b/4o Parity-Low", "B": "B 8b/4o Crossover", "C": "C 4b/8o Anchor", "D": "D 8b/8o Parity-High"}
@@ -401,6 +401,10 @@ def load_phase1():
         if sheet == "Summary":
             continue
         d = xl.parse(sheet)
+        if "SessionComplete" in d:
+            d = d[d.SessionComplete == "yes"]
+        if len(d) == 0:
+            continue
         d["Session"] = d.Session.astype(int)
         rows = []
         for _, r in d.iterrows():
@@ -469,7 +473,8 @@ def phase1_switching(p1):
     print("-" * 72)
     for s, d in p1.items():
         c = d[d.Type.isin(DUAL)]
-        print(f"   {s:<8} {100 * c.SideSwitches.sum() / c.TouchPairs.sum():.0f}%")
+        if c.TouchPairs.sum():
+            print(f"   {s:<8} {100 * c.SideSwitches.sum() / c.TouchPairs.sum():.0f}%")
 
 
 def main():

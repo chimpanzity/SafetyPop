@@ -112,15 +112,25 @@ the failure mode that can leave a forward gap.
 
 | Path | Contents |
 |---|---|
-| `merged_sessions/` | 20 merged session files, one per multi-visit session. Each holds trials 1 to 60. |
+| `merged_sessions/` | 39 merged session files, one per multi-visit session, built by `../analysis/compile_sessions.py` (the first 20 by `merge_safetypop.py`). |
 | `merge_logs/` | Audit log per merge: source files in date order, provenance by block, and a field-by-field diff of every overlap trial. 15 of the 20 merges have one; the five made before the audit log existed (Arthur 4, Billy 1, Evelyn 1, Rowena 5, Rowena 6) do not. |
 | `SafetyPop_AllSubjects_CompleteSessions.xlsx` | Master workbook: 41 complete sessions, 2,460 trials, one sheet per subject plus a Summary sheet. Merged and single-visit sessions, with a `SourceFile` column per row. Excludes Arthur session 8, whose three partials cover trials 1 to 46 only. |
 | `SafetyPop_AllSubjects_Overview_v2.xlsx` | Earlier cross-subject overview from the collection machine. |
 | `SafetyPop_Arthur_AllSessions.xlsx` | Arthur's sessions, compiled on the collection machine. |
 
-Every file in `merged_sessions/` has been checked against `data/raw/`: all 20 hold trials
-1 to 60 with no gaps or duplicates, and every row is byte-identical to a row in a raw file for
-that subject and session.
+| `SafetyPop_AllSubjects_AllSessions.xlsx` | Current compilation (2026-11-24): every session of every subject, complete or not, one sheet per subject with `SourceFile` and `SessionComplete` per row, plus a Summary sheet of coverage. Built by `../analysis/compile_sessions.py`. |
+
+Every row in `merged_sessions/` is byte-identical to a row in a raw file for that subject and
+session. Five merges were rebuilt on 2026-11-24 when the full booth dumps surfaced a raw file the
+August merge did not have (Arthur 4, Billy 3, Billy 6, Evelyn 1, Rowena 6): under keep-earliest
+the newly surfaced earlier run supplies a few overlap trials (13, 2, 3, 5 and 3 rows) that the
+August merge had taken from the later file. The August master workbook still holds the old rows.
+
+Two files are left out of the merge by decision (the `EXCLUDE` list in `compile_sessions.py`):
+Ben's session 1 was started on 05-20 and abandoned after 32 trials, then run again from trial 1
+on 06-01; the 06-01 run is the session. The three files in `raw/Unassigned/` name no subject:
+two 05-18 test runs of a few trials and a 05-20 file of 33 trials from the east booth (Ben's
+abandoned attempt was in that booth the same minute).
 
 ## Provenance notes
 

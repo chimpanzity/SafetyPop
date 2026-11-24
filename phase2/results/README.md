@@ -10,36 +10,37 @@ by hand, and nothing here is an input to anything else.
 | `figures/SafetyPop2_Billy_summary.png`, `SafetyPop2_Ben_summary.png` | Six-panel summary per subject from `figure_safetypop2.py`: competence by session, forced 4-circle cost by polarity, route choice by cell, the Crossover cell by session, within-trial monitoring, ghost touches against the adjusted chance |
 | `figures/SafetyPop2_two_apes.png` | Both apes on the crossover cost curve (Experiment 1 open, Experiment 2 filled) and their Crossover-cell first-touch rates by session |
 
-## Findings so far (Billy, 11 sessions; Ben, 10 sessions)
+## Findings with five subjects (2026-11-24 compilation)
 
-- Both apes crossed the break-even on the forced 4-circle trials: Billy 8.50 touches per array
-  in Phase 1 to 7.33 in Phase 2, Ben 8.93 to 7.53. The gain comes almost entirely from
-  white-target arrays, which pop out (about 6 touches); black-target arrays stay near 8 to 9.
-  Neither ape reached mastery; accuracy at the two-stimulus stage stays near chance.
-- Billy flipped in the Crossover cell (B, 8 bubbles vs 4 circles): first touch on oddity 87.5%
-  (27% in Phase 1), completion by oddity 76% (28%). Choice tracks the price of the alternative:
-  with the same 4-circle array he starts on oddity on 69% of A trials (4 bubbles) against 87.5%
-  of B trials (8 bubbles), Fisher p = 0.003; C (8 circles, 4 bubbles) was never completed by
-  oddity. In Phase 1, without competence, bubble count made no difference (28% vs 27%).
-- Ben did not flip: B first touch 15% (43% in Phase 1), completion 22.5%, A, C and D 0 of 240.
-  He sampled oddity in session 1 and stopped. Same place on the curve, opposite route.
-- Billy alternates sides on 84% of consecutive touches, so his completion rates are reproduced
-  by a strict-alternation race model fed with his forced-trial costs (85/67% predicted vs 84/68%
-  observed for white/black arrays). First touch is the clean choice measure for him. Ben switches
-  on 7% of touches, so his completion is a real decision.
-- Within a trial both apes read the outcome of the first oddity touch: Billy finishes by oddity
-  on 96% of B trials after a hit and 51% after a miss. His first touch does not read the
-  polarity he can see before touching (91% vs 84%).
-- Ghost touches (H7) are null so far: 74/332 vs 18.8% adjusted chance for Billy (p = 0.11),
-  52/312 vs 17.6% for Ben (p = 0.70), pooled 126/644 vs 18.2% (p = 0.38). About 1,000 trials
-  would be needed for 80% power at Billy's observed effect.
-- H2 and H3 in their preregistered gradual, time-locked form are not supported: pop-out
-  delivered most of the attainable competence within the first 100 trials, so there was no
-  slow climb to test the flip against. The cross-sectional results above stand.
+Headline numbers from `results_<Subject>.txt`; Billy and Ben now have 20 and 13 sessions, so the
+figures below supersede the two-subject ones quoted in the Lilly deck.
+
+| Subject | Sessions | Forced 4-circle cost, Phase 1 to Phase 2 | B first touch on oddity, Phase 1 to Phase 2 | A vs B first touch (price test) | Side switches |
+|---|---|---|---|---|---|
+| Arthur | 19 | 9.95 to 7.47 | 15% to 42% (p = 0.0001) | 49% vs 42%, p = 0.31 | 62% |
+| Ben | 13 | 8.82 to 7.31 | 39% to 19% (p = 0.004) | 10% vs 19%, p = 0.08 | 8% |
+| Billy | 19 | 8.45 to 6.77 | 26% to 89% (p < 1e-20) | 69% vs 89%, p < 1e-5, OR 3.9 | 82% |
+| Evelyn | 12 | 8.52 to 6.54 | 55% to 62% (p = 0.57) | 50% vs 62%, p = 0.15 | 31% |
+| Rowena | 7 | 8.28 to 8.39 | 25% to 34% (p = 0.28) | 45% vs 34%, p = 0.33 | 20% |
+
+- Four of five crossed the break-even on forced 4-circle trials (Rowena, with seven sessions, has
+  not); per-stage accuracy is above chance for all five, highest for Billy (0.56) and lowest for
+  Arthur (0.32). Nobody is near mastery.
+- Billy remains the only ape whose first touch tracks the price of the alternative (A vs B).
+  Arthur's Crossover-cell first touch rose from 15% to 42% without an A-vs-B difference, and C is
+  still never completed by oddity (0 of 156) while B is completed on 60%: his completion pattern is
+  cost-sensitive, his first touch is not. Ben went backwards, as before. Evelyn and Rowena show no
+  change the test can see.
+- Ghost touches (H7) stay null and are now well powered: pooled 392 of 2,159 eligible trials,
+  18.2% vs 17.7% adjusted chance, p = 0.57. No subject is individually above chance (Billy 20.9%
+  vs 18.7%, p = 0.17, is the closest).
+- Cross-divider perseveration (landing in the same grid cell after switching sides) is strong in
+  Arthur (36% vs 24% chance), Billy (29% vs 25%) and Rowena (31% vs 23%), absent in Ben and Evelyn.
+- The session-level correlation between competence and Crossover choice is not significant for any
+  subject (the preregistered time-locked form of H3).
 
 ## Status of these numbers
 
-Two subjects, with Billy's merge carrying the two open decisions listed in `../data/README.md`
-(session 3 restart, session 9 missing trials). The race-model and position-adjusted ghost tests
-were developed after data collection and are exploratory. Numbers here are the versions reviewed
-on 2026-11-24.
+Keep-earliest over the full booth dumps, with the twice-run and restarted sessions listed in
+`../data/README.md` resolved in favour of the first run. The race-model and position-adjusted
+ghost tests were developed after data collection and are exploratory.

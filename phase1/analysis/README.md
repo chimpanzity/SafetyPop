@@ -9,6 +9,7 @@ Run them from the repository root; paths in each parameter block are relative to
 | Script | Purpose |
 |---|---|
 | `merge_safetypop.py` | Merge the files of one multi-visit session under the keep-earliest rule. Validates trial continuity (no gaps, no duplicates, 1 to 60), copies retained rows byte for byte, and writes an audit log naming the source of every block and diffing every overlap trial. Edit the parameter block at the top per merge. |
+| `compile_sessions.py` | Merge every multi-visit session under keep-earliest (audit log per merge, same format as `merge_safetypop.py`), leave existing merges alone unless their rows differ, and build `SafetyPop_AllSubjects_AllSessions.xlsx`. Run with no arguments from the repository root. |
 | `hazard_analysis.py` | Within-trial hazard of abandoning Oddity for Bubble Popping. Discrete-time event-history model over Oddity-touch events, standard errors clustered by trial, with per-subject fits and a stratified model-free cross-check. Reads `phase1/data/processed/SafetyPop_AllSubjects_CompleteSessions.xlsx`. Needs `pandas`, `numpy`, `statsmodels`. |
 
 Every merged file in `phase1/data/processed/merged_sessions/` has been checked to be reproducible from

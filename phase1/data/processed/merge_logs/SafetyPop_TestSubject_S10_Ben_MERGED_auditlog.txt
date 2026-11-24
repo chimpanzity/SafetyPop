@@ -1,0 +1,23 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:47:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  08-04-2026  SafetyPop_TestSubject_S10_08-04-2026_13-06-11_Ben_29.txt  n=29  trials 1-29
+  08-04-2026  SafetyPop_TestSubject_S10_08-04-2026_13-34-04_Ben_Finsh.txt  n=33  trials 28-60
+
+OUTPUT: SafetyPop_TestSubject_S10_Ben_MERGED.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-29   <- SafetyPop_TestSubject_S10_08-04-2026_13-06-11_Ben_29.txt
+  trials  30-60   <- SafetyPop_TestSubject_S10_08-04-2026_13-34-04_Ben_Finsh.txt
+
+OVERLAP / DISCARDED ROWS (n=2):
+  Trial 28: kept SafetyPop_TestSubject_S10_08-04-2026_13-06-11_Ben_29.txt (08-04-2026), discarded SafetyPop_TestSubject_S10_08-04-2026_13-34-04_Ben_Finsh.txt (08-04-2026)
+    design Code: kept=B2L discarded=B2L  MATCH
+    fields differing: TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 29: kept SafetyPop_TestSubject_S10_08-04-2026_13-06-11_Ben_29.txt (08-04-2026), discarded SafetyPop_TestSubject_S10_08-04-2026_13-34-04_Ben_Finsh.txt (08-04-2026)
+    design Code: kept=A1L discarded=A1L  MATCH
+    fields differing: TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates

@@ -1,0 +1,214 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:47:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  08-13-2026  SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt  n=18  trials 1-18
+  08-25-2026  SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt  n=23  trials 15-37
+  08-31-2026  SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt  n=43  trials 1-43
+  09-10-2026  SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt  n=10  trials 16-25
+  09-29-2026  SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt  n=13  trials 25-37
+
+OUTPUT: SafetyPop_TestSubject_S1_Rita_MERGED.txt  n=43  trials 1-43
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-18   <- SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt
+  trials  19-37   <- SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt
+  trials  38-43   <- SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt
+
+OVERLAP / DISCARDED ROWS (n=64):
+  Trial 15: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026)
+    design Code: kept=B3L discarded=B3L  MATCH
+    fields differing: Date, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 16: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026)
+    design Code: kept=J2L discarded=J2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 17: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026)
+    design Code: kept=B3R discarded=B3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 18: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026)
+    design Code: kept=I6L discarded=I6L  MATCH
+    fields differing: Date, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 1: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=B2R discarded=B2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 2: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=A1R discarded=A1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 3: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I4L discarded=I4L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 4: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=F1L discarded=F1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 5: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=E0R discarded=E0R  MATCH
+    fields differing: Date, LeftPositions, RightPositions, BubTouches, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 6: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=C3R discarded=C3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 7: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=E0L discarded=E0L  MATCH
+    fields differing: Date, LeftPositions, RightPositions, BubTouches, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 8: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=A2R discarded=A2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 9: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=H0R discarded=H0R  MATCH
+    fields differing: Date, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 10: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I5L discarded=I5L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 11: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=F2L discarded=F2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 12: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=A2L discarded=A2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 13: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=C3L discarded=C3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 14: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=A3R discarded=A3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddTwoStimWin, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 15: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=B3L discarded=B3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 16: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=J2L discarded=J2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 17: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=B3R discarded=B3R  MATCH
+    fields differing: Date, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 18: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I6L discarded=I6L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 19: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I1R discarded=I1R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 20: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=D2R discarded=D2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 21: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I3R discarded=I3R  MATCH
+    fields differing: Date, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 22: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=A5R discarded=A5R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 23: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I4R discarded=I4R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 24: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I3L discarded=I3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 25: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=C1R discarded=C1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 26: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=D3L discarded=D3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 27: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=F3R discarded=F3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 28: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=H0L discarded=H0L  MATCH
+    fields differing: Date, LeftPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 29: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=J1L discarded=J1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 30: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=F2R discarded=F2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 31: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=A4R discarded=A4R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 32: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=B1L discarded=B1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 33: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=J1R discarded=J1R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 34: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=D1L discarded=D1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 35: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=C2R discarded=C2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 36: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=I1L discarded=I1L  MATCH
+    fields differing: Date, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 37: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_08-31-2026_13-40-38_Rita_V1.txt (08-31-2026)
+    design Code: kept=D2L discarded=D2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 16: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=J2L discarded=J2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 17: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=B3R discarded=B3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 18: kept SafetyPop_TestSubject_S1_08-13-2026_13-53-13_Rita_t18.txt (08-13-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=I6L discarded=I6L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 19: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=I1R discarded=I1R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 20: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=D2R discarded=D2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 21: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=I3R discarded=I3R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 22: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=A5R discarded=A5R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 23: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=I4R discarded=I4R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 24: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=I3L discarded=I3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 25: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-10-2026_13-37-06_RITA_T26.txt (09-10-2026)
+    design Code: kept=C1R discarded=C1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 25: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=C1R discarded=C1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 26: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=D3L discarded=D3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 27: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=F3R discarded=F3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 28: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=H0L discarded=H0L  MATCH
+    fields differing: Date, LeftPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 29: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=J1L discarded=J1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 30: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=F2R discarded=F2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 31: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=A4R discarded=A4R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 32: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=B1L discarded=B1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 33: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=J1R discarded=J1R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 34: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=D1L discarded=D1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 35: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=C2R discarded=C2R  MATCH
+    fields differing: Date, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 36: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=I1L discarded=I1L  MATCH
+    fields differing: Date, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 37: kept SafetyPop_TestSubject_S1_08-25-2026_13-16-02_Rita_T38.txt (08-25-2026), discarded SafetyPop_TestSubject_S1_09-29-2026_13-43-58_rita_t37.txt (09-29-2026)
+    design Code: kept=D2L discarded=D2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: FAIL
+  MISSING TRIALS: [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]

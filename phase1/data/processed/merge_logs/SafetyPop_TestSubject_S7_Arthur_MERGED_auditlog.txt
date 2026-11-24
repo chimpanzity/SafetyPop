@@ -1,0 +1,35 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:47:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  06-11-2026  SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt  n=6  trials 1-6
+  06-15-2026  SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt  n=60  trials 1-60
+
+OUTPUT: SafetyPop_TestSubject_S7_Arthur_MERGED.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-6    <- SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt
+  trials   7-60   <- SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt
+
+OVERLAP / DISCARDED ROWS (n=6):
+  Trial 1: kept SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt (06-11-2026), discarded SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt (06-15-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 2: kept SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt (06-11-2026), discarded SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt (06-15-2026)
+    design Code: kept=A6R discarded=A6R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 3: kept SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt (06-11-2026), discarded SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt (06-15-2026)
+    design Code: kept=J2R discarded=J2R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 4: kept SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt (06-11-2026), discarded SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt (06-15-2026)
+    design Code: kept=C1L discarded=C1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 5: kept SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt (06-11-2026), discarded SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt (06-15-2026)
+    design Code: kept=I1L discarded=I1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 6: kept SafetyPop_TestSubject_S7_06-11-2026_13-05-14__Arthur6.txt (06-11-2026), discarded SafetyPop_TestSubject_S7_06-15-2026_13-35-21_Arthur.txt (06-15-2026)
+    design Code: kept=A5R discarded=A5R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates

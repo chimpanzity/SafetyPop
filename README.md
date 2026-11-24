@@ -48,9 +48,9 @@ explain has its own `README.md`.
 | Trials per session | 60 | 50 |
 | Raw file prefix | `SafetyPop_` | `SafetyPop2_` |
 | Columns in the output file | 30 | 33 (`Polarity` replaces `Face`, plus `TargetCellHistory`, `EventLog`, `TrialStart`) |
-| Subjects run so far | Arthur, Ben, Billy, Evelyn, Rowena | Ben, Billy |
-| Collection dates | 2026-05-19 to 2026-07-30 | 2026-08-26 to 2026-09-08 |
-| Status | Collection finished, analysed | Collection in progress; Ben and Billy merged and analysed |
+| Subjects run so far | Arthur, Ben, Billy, Evelyn, Rowena (plus trials with Cathy, Liza, Lucy, Rita, Sue) | Arthur, Ben, Billy, Evelyn, Rowena (plus Rita, Liza) |
+| Collection dates | 2026-05-19 to 2026-10-06 | 2026-08-24 to 2026-11-03 |
+| Status | Target 10 sessions per subject: reached for four, Evelyn at 7 | Target 20 sessions per subject: Arthur and Billy 19, Ben 13, Evelyn 12, Rowena 7; all merged and analysed |
 | Design | `phase1/docs/SafetyPop_TrialDesign_430Final.pdf` | `phase2/docs/SafetyPop_Phase2_TrialDesign.pdf` (overview); full text in the two `.md` files beside it |
 
 The Phase 1 preregistration (AsPredicted, H1 to H9) is in

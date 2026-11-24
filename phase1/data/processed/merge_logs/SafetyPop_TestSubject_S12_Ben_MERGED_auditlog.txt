@@ -1,0 +1,19 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:47:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  07-16-2026  SafetyPop_TestSubject_S12_07-16-2026_13-09-27_ben_finished.txt  n=24  trials 37-60
+  08-10-2026  SafetyPop_TestSubject_S12_08-10-2026_13-26-50_Ben24.txt  n=25  trials 1-25
+
+OUTPUT: SafetyPop_TestSubject_S12_Ben_MERGED.txt  n=49  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-25   <- SafetyPop_TestSubject_S12_08-10-2026_13-26-50_Ben24.txt
+  trials  37-60   <- SafetyPop_TestSubject_S12_07-16-2026_13-09-27_ben_finished.txt
+
+OVERLAP / DISCARDED ROWS (n=0):
+  none
+
+VALIDATION: FAIL
+  MISSING TRIALS: [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]

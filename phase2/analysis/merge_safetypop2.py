@@ -280,7 +280,7 @@ def main():
     args = ap.parse_args()
     raw_dir, out_dir = Path(args.raw), Path(args.out)
     if args.all:
-        subjects = sorted(p.name for p in raw_dir.iterdir() if p.is_dir())
+        subjects = sorted(p.name for p in raw_dir.iterdir() if p.is_dir() and p.name != "Unassigned")
     elif args.subject:
         subjects = [args.subject]
     else:

@@ -1,0 +1,27 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:47:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  08-10-2026  SafetyPop_TestSubject_S8_08-10-2026_13-15-09_Eveynb_28.txt  n=30  trials 1-30
+  08-10-2026  SafetyPop_TestSubject_S8_08-10-2026_13-36-22_Evelyn50.txt  n=23  trials 28-50
+
+OUTPUT: SafetyPop_TestSubject_S8_Evelyn_MERGED.txt  n=50  trials 1-50
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-30   <- SafetyPop_TestSubject_S8_08-10-2026_13-15-09_Eveynb_28.txt
+  trials  31-50   <- SafetyPop_TestSubject_S8_08-10-2026_13-36-22_Evelyn50.txt
+
+OVERLAP / DISCARDED ROWS (n=3):
+  Trial 28: kept SafetyPop_TestSubject_S8_08-10-2026_13-15-09_Eveynb_28.txt (08-10-2026), discarded SafetyPop_TestSubject_S8_08-10-2026_13-36-22_Evelyn50.txt (08-10-2026)
+    design Code: kept=A1R discarded=A1R  MATCH
+    fields differing: LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, FirstBubbleGhost, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 29: kept SafetyPop_TestSubject_S8_08-10-2026_13-15-09_Eveynb_28.txt (08-10-2026), discarded SafetyPop_TestSubject_S8_08-10-2026_13-36-22_Evelyn50.txt (08-10-2026)
+    design Code: kept=J2R discarded=J2R  MATCH
+    fields differing: TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 30: kept SafetyPop_TestSubject_S8_08-10-2026_13-15-09_Eveynb_28.txt (08-10-2026), discarded SafetyPop_TestSubject_S8_08-10-2026_13-36-22_Evelyn50.txt (08-10-2026)
+    design Code: kept=I2L discarded=I2L  MATCH
+    fields differing: TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: FAIL
+  MISSING TRIALS: [51, 52, 53, 54, 55, 56, 57, 58, 59, 60]

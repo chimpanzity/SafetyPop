@@ -1,0 +1,71 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:47:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  09-10-2026  SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt  n=11  trials 1-11
+  09-29-2026  SafetyPop_TestSubject_S2_09-29-2026_13-50-23_liza_t7.txt  n=6  trials 1-6
+  09-30-2026  SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt  n=23  trials 6-28
+  10-15-2026  SafetyPop_TestSubject_S2_10-15-2026_13-56-27_liza_t11.txt  n=5  trials 7-11
+
+OUTPUT: SafetyPop_TestSubject_S2_Liza_MERGED.txt  n=28  trials 1-28
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-11   <- SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt
+  trials  12-28   <- SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt
+
+OVERLAP / DISCARDED ROWS (n=17):
+  Trial 1: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-29-2026_13-50-23_liza_t7.txt (09-29-2026)
+    design Code: kept=A4L discarded=A4L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, CompletedBy, BubTouches, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 2: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-29-2026_13-50-23_liza_t7.txt (09-29-2026)
+    design Code: kept=A5R discarded=A5R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 3: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-29-2026_13-50-23_liza_t7.txt (09-29-2026)
+    design Code: kept=H0R discarded=H0R  MATCH
+    fields differing: Date, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 4: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-29-2026_13-50-23_liza_t7.txt (09-29-2026)
+    design Code: kept=B3R discarded=B3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 5: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-29-2026_13-50-23_liza_t7.txt (09-29-2026)
+    design Code: kept=I5L discarded=I5L  MATCH
+    fields differing: Date, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 6: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-29-2026_13-50-23_liza_t7.txt (09-29-2026)
+    design Code: kept=A6L discarded=A6L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 6: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt (09-30-2026)
+    design Code: kept=A6L discarded=A6L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 7: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt (09-30-2026)
+    design Code: kept=J1R discarded=J1R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 8: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt (09-30-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 9: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt (09-30-2026)
+    design Code: kept=F2R discarded=F2R  MATCH
+    fields differing: Date, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 10: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt (09-30-2026)
+    design Code: kept=I3R discarded=I3R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 11: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_09-30-2026_13-33-38_liza_t29.txt (09-30-2026)
+    design Code: kept=F2L discarded=F2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 7: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_10-15-2026_13-56-27_liza_t11.txt (10-15-2026)
+    design Code: kept=J1R discarded=J1R  MATCH
+    fields differing: Date, RightPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 8: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_10-15-2026_13-56-27_liza_t11.txt (10-15-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 9: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_10-15-2026_13-56-27_liza_t11.txt (10-15-2026)
+    design Code: kept=F2R discarded=F2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 10: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_10-15-2026_13-56-27_liza_t11.txt (10-15-2026)
+    design Code: kept=I3R discarded=I3R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 11: kept SafetyPop_TestSubject_S2_09-10-2026_13-58-15_LIZA_T11.txt (09-10-2026), discarded SafetyPop_TestSubject_S2_10-15-2026_13-56-27_liza_t11.txt (10-15-2026)
+    design Code: kept=F2L discarded=F2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: FAIL
+  MISSING TRIALS: [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]

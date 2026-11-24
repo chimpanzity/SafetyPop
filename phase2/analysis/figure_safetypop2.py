@@ -31,7 +31,8 @@ RESULTS = PHASE / "results" / "figures"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from analyze_safetypop2 import DUAL, load_phase1, stage_bits, stage_chance, wilson  # noqa: E402
 
-HUE = {"Billy": "#C85A12", "Ben": "#2B6FC2"}       # categorical pair, validated for CVD separation
+HUE = {"Billy": "#C85A12", "Ben": "#2B6FC2", "Arthur": "#2E8B57", "Evelyn": "#7B3FA0", "Rowena": "#8A6D3B"}
+MARK = {"Billy": "o", "Ben": "D", "Arthur": "s", "Evelyn": "^", "Rowena": "v"}
 INK, MUTED, GRID = "#1F1F1F", "#6B7280", "#E5E7EB"
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 9, "axes.edgecolor": MUTED, "axes.labelcolor": INK,
                      "xtick.color": INK, "ytick.color": INK, "axes.spines.top": False, "axes.spines.right": False,
@@ -210,26 +211,26 @@ def two_apes_figure(subjects, tables, p1):
         I2 = t[t.Type == "I"]
         c2 = I2.Cost.mean()
         b2 = t[t.Type == "B"].OddityFirst.mean()
-        marker = "o" if s == "Billy" else "D"
+        marker = MARK.get(s, "o")
         if p1 is not None and s in p1:
             d1 = p1[s]
             d1 = d1[d1.Probe == "N"] if "Probe" in d1 else d1
             c1 = d1[d1.Type == "I"].Cost.mean()
             b1 = d1[d1.Type == "B"].OddityFirst.mean()
-            ax.scatter([4 / c1], [c1], s=70, facecolor="white", edgecolor=HUE[s], linewidth=1.8, marker=marker, zorder=4)
+            ax.scatter([4 / c1], [c1], s=70, facecolor="white", edgecolor=HUE.get(s, "#C85A12"), linewidth=1.8, marker=marker, zorder=4)
             ax.annotate("", xy=(4 / c2, c2), xytext=(4 / c1, c1),
-                        arrowprops=dict(arrowstyle="->", color=HUE[s], linestyle="--", linewidth=1.2, shrinkA=6, shrinkB=6), zorder=3)
+                        arrowprops=dict(arrowstyle="->", color=HUE.get(s, "#C85A12"), linestyle="--", linewidth=1.2, shrinkA=6, shrinkB=6), zorder=3)
             label = f"{s}: B first touch {100 * b1:.0f}% → {100 * b2:.0f}%"
         else:
             label = f"{s}: B first touch {100 * b2:.0f}%"
-        ax.scatter([4 / c2], [c2], s=70, color=HUE[s], marker=marker, zorder=5, label=label)
+        ax.scatter([4 / c2], [c2], s=70, color=HUE.get(s, "#C85A12"), marker=marker, zorder=5, label=label)
     ax.set_xlim(0.4, 1.0)
     ax.set_ylim(0, 12)
     ax.set_xticks([0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
     ax.set_xticklabels(["40%\nguessing", "50%", "60%", "70%", "80%", "90%", "100%\nmastery"])
     ax.set_xlabel("Accuracy per touch on forced 4-circle trials (4 / mean cost)")
     ax.set_ylabel("Touches to finish the task")
-    ax.set_title("Two apes on the crossover curve (open: Experiment 1, filled: Experiment 2)")
+    ax.set_title("Five apes on the crossover curve (open: Experiment 1, filled: Experiment 2)")
     ax.legend(frameon=False, loc="upper right", fontsize=8)
     ax.spines["left"].set_visible(True)
 
@@ -237,14 +238,14 @@ def two_apes_figure(subjects, tables, p1):
     for s in subjects:
         t = tables[s]
         B = t[t.Type == "B"].groupby("Session").OddityFirst.mean()
-        ax2.plot(B.index, B.values, color=HUE[s], linewidth=2, marker="o" if s == "Billy" else "D", markersize=5, label=s)
-        ax2.text(B.index[-1] + 0.15, B.values[-1], s, color=HUE[s], va="center", fontsize=9, fontweight="bold")
+        ax2.plot(B.index, B.values, color=HUE.get(s, "#C85A12"), linewidth=2, marker=MARK.get(s, "o"), markersize=5, label=s)
+        ax2.text(B.index[-1] + 0.15, B.values[-1], s, color=HUE.get(s, "#C85A12"), va="center", fontsize=9, fontweight="bold")
     ax2.set_ylim(0, 1.05)
     ax2.set_xlabel("Session")
     ax2.set_ylabel("Crossover trials started on oddity")
     ax2.set_title("The Crossover cell by session")
-    ax2.set_xticks(range(1, 12))
-    ax2.set_xlim(0.5, 12.2)
+    ax2.set_xticks(range(1, 21))
+    ax2.set_xlim(0.5, 21.5)
     tidy(ax2)
     fig.tight_layout()
     out = RESULTS / "SafetyPop2_two_apes.png"

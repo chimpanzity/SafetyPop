@@ -1,0 +1,48 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:47:38
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  06-15-2026  SafetyPop_TestSubject_S8_06-15-2026_13-55-40_Arthur18.txt  n=18  trials 1-18
+  06-17-2026  SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt  n=22  trials 16-37
+  06-18-2026  SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt  n=12  trials 35-46
+  07-16-2026  SafetyPop_TestSubject_S8_07-16-2026_13-25-02_arthur_finished.txt  n=17  trials 44-60
+
+OUTPUT: SafetyPop_TestSubject_S8_Arthur_MERGED.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-18   <- SafetyPop_TestSubject_S8_06-15-2026_13-55-40_Arthur18.txt
+  trials  19-37   <- SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt
+  trials  38-46   <- SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt
+  trials  47-60   <- SafetyPop_TestSubject_S8_07-16-2026_13-25-02_arthur_finished.txt
+
+OVERLAP / DISCARDED ROWS (n=9):
+  Trial 16: kept SafetyPop_TestSubject_S8_06-15-2026_13-55-40_Arthur18.txt (06-15-2026), discarded SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt (06-17-2026)
+    design Code: kept=C1L discarded=C1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 17: kept SafetyPop_TestSubject_S8_06-15-2026_13-55-40_Arthur18.txt (06-15-2026), discarded SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt (06-17-2026)
+    design Code: kept=B3R discarded=B3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 18: kept SafetyPop_TestSubject_S8_06-15-2026_13-55-40_Arthur18.txt (06-15-2026), discarded SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt (06-17-2026)
+    design Code: kept=D3R discarded=D3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 35: kept SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt (06-17-2026), discarded SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt (06-18-2026)
+    design Code: kept=I2R discarded=I2R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 36: kept SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt (06-17-2026), discarded SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt (06-18-2026)
+    design Code: kept=D2L discarded=D2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 37: kept SafetyPop_TestSubject_S8_06-17-2026_13-36-48_Arthur37.txt (06-17-2026), discarded SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt (06-18-2026)
+    design Code: kept=B2R discarded=B2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 44: kept SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt (06-18-2026), discarded SafetyPop_TestSubject_S8_07-16-2026_13-25-02_arthur_finished.txt (07-16-2026)
+    design Code: kept=C3R discarded=C3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 45: kept SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt (06-18-2026), discarded SafetyPop_TestSubject_S8_07-16-2026_13-25-02_arthur_finished.txt (07-16-2026)
+    design Code: kept=F1L discarded=F1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 46: kept SafetyPop_TestSubject_S8_06-18-2026_13-06-56Arthur_36-46.txt (06-18-2026), discarded SafetyPop_TestSubject_S8_07-16-2026_13-25-02_arthur_finished.txt (07-16-2026)
+    design Code: kept=A5R discarded=A5R  MATCH
+    fields differing: Date, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates

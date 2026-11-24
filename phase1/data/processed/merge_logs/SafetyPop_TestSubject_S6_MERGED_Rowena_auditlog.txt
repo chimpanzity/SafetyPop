@@ -1,0 +1,83 @@
+SafetyPop merge audit log
+Generated: 2026-11-24 17:48:22
+Rule: keep-earliest (first-dated source wins; rows verbatim)
+
+SOURCES (chronological):
+  06-01-2026  SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt  n=47  trials 1-47
+  06-02-2026  SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt  n=15  trials 35-49
+  06-02-2026  SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt  n=14  trials 47-60
+  06-03-2026  SafetyPop_TestSubject_S6_06-03-2026_13-01-rowena_08finish.txt  n=5  trials 56-60
+
+OUTPUT: SafetyPop_TestSubject_S6_MERGED_Rowena.txt  n=60  trials 1-60
+
+PROVENANCE BY TRIAL BLOCK:
+  trials   1-47   <- SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt
+  trials  48-49   <- SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt
+  trials  50-60   <- SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt
+
+OVERLAP / DISCARDED ROWS (n=21):
+  Trial 35: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=G0L discarded=G0L  MATCH
+    fields differing: Date, LeftPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 36: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=I5R discarded=I5R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 37: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=A2R discarded=A2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 38: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=A4R discarded=A4R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 39: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=I4R discarded=I4R  MATCH
+    fields differing: Date, TargetCellPos, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 40: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=C2R discarded=C2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 41: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=C3R discarded=C3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, FirstBubbleGhost, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 42: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=F1L discarded=F1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 43: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=B2L discarded=B2L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 44: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=F3R discarded=F3R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 45: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=B1R discarded=B1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 46: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=H0R discarded=H0R  MATCH
+    fields differing: Date, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 47: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 47: kept SafetyPop_TestSubject_S6_06-01-2026_13-17-28_rowena0-47.txt (06-01-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026)
+    design Code: kept=F3L discarded=F3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 48: kept SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026)
+    design Code: kept=A4L discarded=A4L  MATCH
+    fields differing: TargetCellPos, LeftPositions, RightPositions, OddErrors, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 49: kept SafetyPop_TestSubject_S6_06-02-2026_13-30-39_rowena49.txt (06-02-2026), discarded SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026)
+    design Code: kept=I4L discarded=I4L  MATCH
+    fields differing: TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 56: kept SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026), discarded SafetyPop_TestSubject_S6_06-03-2026_13-01-rowena_08finish.txt (06-03-2026)
+    design Code: kept=I1L discarded=I1L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 57: kept SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026), discarded SafetyPop_TestSubject_S6_06-03-2026_13-01-rowena_08finish.txt (06-03-2026)
+    design Code: kept=B2R discarded=B2R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, LatencyFirstTouch_ms, TrialTime_ms, TouchLog
+  Trial 58: kept SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026), discarded SafetyPop_TestSubject_S6_06-03-2026_13-01-rowena_08finish.txt (06-03-2026)
+    design Code: kept=J3R discarded=J3R  MATCH
+    fields differing: Date, RightPositions, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 59: kept SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026), discarded SafetyPop_TestSubject_S6_06-03-2026_13-01-rowena_08finish.txt (06-03-2026)
+    design Code: kept=C1R discarded=C1R  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, RightPositions, OddWins, OddErrors, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+  Trial 60: kept SafetyPop_TestSubject_S6_06-02-2026_13-50-16_rowena_60.txt (06-02-2026), discarded SafetyPop_TestSubject_S6_06-03-2026_13-01-rowena_08finish.txt (06-03-2026)
+    design Code: kept=I3L discarded=I3L  MATCH
+    fields differing: Date, TargetCellPos, LeftPositions, OddErrors, OddTwoStimWin, LatencyFirstTouch_ms, LatencyFirstTarget_ms, TrialTime_ms, TouchLog
+
+VALIDATION: PASS - continuous, no gaps, no duplicates

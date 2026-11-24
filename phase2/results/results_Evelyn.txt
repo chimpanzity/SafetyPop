@@ -1,0 +1,118 @@
+SafetyPop Phase 2: Evelyn
+========================================================================
+600 trials in sessions 1-12 (08-26-2026 to 09-23-2026); core dual-task trials 384, forced oddity trials 96
+Type counts: A96 B96 C96 D96 E24 F48 G24 H24 I48 J48
+
+H2  Competence on forced oddity trials (I = 4 stimuli, J = 8)
+------------------------------------------------------------------------
+ session  stages  accuracy  chance  I cost  J cost  I 2-stim
+       1      40      0.47    0.28    6.25   20.75      0.50
+       2      40      0.50    0.28    6.00   14.25      0.25
+       3      40      0.53    0.28    7.50   15.75      0.50
+       4      40      0.55    0.28    5.75   18.00      0.50
+       5      40      0.57    0.28    5.00   14.50      0.75
+       6      40      0.42    0.28    6.25   15.75      0.75
+       7      40      0.35    0.28    6.75   20.25      0.75
+       8      40      0.38    0.28    8.25   15.75      0.50
+       9      40      0.35    0.28    6.25   20.00      0.50
+      10      40      0.45    0.28    6.25   15.00      1.00
+      11      40      0.38    0.28    8.00   15.50      0.25
+      12      40      0.50    0.28    6.25   12.75      1.00
+All sessions: per-stage accuracy 0.454 vs chance 0.280 (binomial p = 6.1e-16); I cost 6.54 (chance 10, mastery 4; n = 48), J cost 16.52 (chance 36, mastery 8; n = 48)
+Two-stimulus stage on I trials (chance 0.5): 0.60; on J: 0.54
+Single-step change-point in per-stage accuracy: before trial 294 (session 6) 0.52 (n = 230 stages), after 0.40 (n = 250); LR = 7.1 (a flat model is nested, 2 extra parameters; LR above ~6 is clear, above ~10 strong)
+Gradual gain, I cost on session: slope +0.08 touches/session, p = 0.34 (trial level, n = 48)
+
+Exploratory  Target polarity (White = white target among black; Black = black among white)
+------------------------------------------------------------------------
+ White: per-stage accuracy 0.50 (n = 240 stages); I cost 6.08 (n = 24), J cost 14.00 (n = 24)
+ Black: per-stage accuracy 0.41 (n = 240 stages); I cost 7.00 (n = 24), J cost 19.04 (n = 24)
+I cost, White vs Black: Mann-Whitney U = 203, p = 0.074
+Per session, I cost by polarity:
+   session  1: White  5.50  Black  7.00
+   session  2: White  5.50  Black  6.50
+   session  3: White 10.50  Black  4.50
+   session  4: White  6.00  Black  5.50
+   session  5: White  6.00  Black  4.00
+   session  6: White  4.50  Black  8.00
+   session  7: White  5.50  Black  8.00
+   session  8: White  6.50  Black 10.00
+   session  9: White  5.50  Black  7.00
+   session 10: White  5.00  Black  7.50
+   session 11: White  7.50  Black  8.50
+   session 12: White  5.00  Black  7.50
+
+H1/H3/H4  Route choice in the four dual-task cells
+------------------------------------------------------------------------
+cell                      completed by oddity    first touch on oddity
+A 4b/4o Parity-Low              25.0% (24/96)            50.0% (48/96)
+B 8b/4o Crossover               53.1% (51/96)            61.5% (59/96)
+C 4b/8o Anchor                    3.1% (3/96)            45.8% (44/96)
+D 8b/8o Parity-High             16.7% (16/96)            47.9% (46/96)
+A vs B (same 4-circle array, 4 vs 8 bubbles): first touch on oddity 50.0% [40, 60] vs 61.5% [51, 71]; Fisher p = 0.146, OR = 1.59
+C vs D (same 8-circle array, 4 vs 8 bubbles): first touch on oddity 45.8% [36, 56] vs 47.9% [38, 58]; Fisher p = 0.885, OR = 1.09
+B above A in 7 of 12 sessions (ties 2); Wilcoxon on session rates p = 0.221
+Per session, first touch on oddity (A B C D) and completion by oddity in B:
+   session  1: first touch  38  50  62  62   B completed  62% (5/8)
+   session  2: first touch  50 100  62  75   B completed  88% (7/8)
+   session  3: first touch  75  88  75  75   B completed  50% (4/8)
+   session  4: first touch  25  25  75  62   B completed  25% (2/8)
+   session  5: first touch  25  75  38  25   B completed  12% (1/8)
+   session  6: first touch  38  62  62  38   B completed  38% (3/8)
+   session  7: first touch  75  62  50  62   B completed  38% (3/8)
+   session  8: first touch  50  50  25  38   B completed  50% (4/8)
+   session  9: first touch  50  25  25  50   B completed  50% (4/8)
+   session 10: first touch  75  38  12  25   B completed  75% (6/8)
+   session 11: first touch  50  88  38  50   B completed  75% (6/8)
+   session 12: first touch  50  75  25  12   B completed  75% (6/8)
+Logistic, first touch on oddity ~ 8 bubbles + 8 circles: OR(8 bubbles) = 1.31 [0.88, 1.97], p = 0.183; OR(8 circles) = 0.70 [0.47, 1.05], p = 0.0823
+   with interaction: p(8 bubbles x 8 circles) = 0.35; LR vs additive = 0.87
+
+H3 (preregistered form)  Does the B choice track competence over time?
+------------------------------------------------------------------------
+Session-level Spearman, I/J accuracy vs B first touch: rho = +0.26 (p = 0.41); vs B completion: rho = -0.16 (p = 0.62)
+B first touch before vs after the competence change-point (trial 294): 68.1% (32/47) vs 55.1% (27/49), Fisher p = 0.214
+
+H5  Within-trial switching (core trials)
+------------------------------------------------------------------------
+Side switches per consecutive touch pair: 30.9%; trials with no switch: 24%
+Median interval between consecutive touches: switching sides 1082 ms (n = 959), staying 1292 ms (n = 2141); the touched side is hidden for about 500 ms after a touch
+Per session, switch rate on core trials: S1:38% S2:36% S3:29% S4:40% S5:34% S6:41% S7:27% S8:25% S9:28% S10:22% S11:22% S12:25%
+
+H6  Preference controls (completing touch on the 4-stimulus side)
+------------------------------------------------------------------------
+E, 4 vs 8 bubbles: 79.2% (19/24);  F, 4 vs 8 circles: 77.1% (37/48)
+
+H7  Ghost touches: first bubble touched in the oddity target's cell
+------------------------------------------------------------------------
+Eligible core trials (a bubble was touched and the target's cell held a bubble): 336 of 384; app flag agrees with the recomputed flag on all 353 scored trials
+Observed 19.6% (66/336); position-bias-adjusted chance 18.1% (uniform over bubble cells would be 18.7%); two-sided exact p = 0.49
+   A 4b/4o Parity-Low    : 28.7% (25/87) vs chance 24.6%
+   B 8b/4o Crossover     : 13.2% (10/76) vs chance 14.0%
+   C 4b/8o Anchor        : 30.4% (24/79) vs chance 23.1%
+   D 8b/8o Parity-High   : 7.4% (7/94) vs chance 11.1%
+   Trials needed for 80% power at this subject's observed effect: about 5,000
+
+Within-trial monitoring (dual-task trials)
+------------------------------------------------------------------------
+B: completed by oddity after a first oddity touch that hit 67.6% (25/37) vs missed 51.0% (26/51); Fisher p = 0.132
+A: completed by oddity after a first oddity touch that hit 34.5% (10/29) vs missed 28.6% (14/49); Fisher p = 0.619
+B first touch on oddity by polarity (visible before the first touch): White 62.5% (30/48), Black 60.4% (29/48); completion by oddity: White 65%, Black 42%
+
+Race model  Can strict side alternation alone produce the B completion rate?
+------------------------------------------------------------------------
+Assume the ape alternates sides on every touch, starting on the side he actually touched first, with oddity touches drawn from his own forced 4-circle cost distribution for that polarity. Bubbles are cleared on the 8th bubble touch, so oddity wins the race if its array clears within 8 oddity touches (start on oddity) or 7 (start on bubbles).
+   White: predicted completion by oddity 90%, observed 65% (n = 48 B trials; 62% started on oddity)
+   Black: predicted completion by oddity 76%, observed 42% (n = 48 B trials; 60% started on oddity)
+   Actual switch rate on core trials 31%: the closer to 100%, the less completion says about choice.
+
+Phase 1 comparison (Evelyn, complete sessions only)
+------------------------------------------------------------------------
+   A 4b/4o Parity-Low     completed by oddity: Phase 1 9.5% (4/42), Phase 2 25.0% (24/96); first touch on oddity: Phase 1 33.3% (14/42), Phase 2 50.0% (48/96)
+   B 8b/4o Crossover      completed by oddity: Phase 1 31.0% (13/42), Phase 2 53.1% (51/96); first touch on oddity: Phase 1 54.8% (23/42), Phase 2 61.5% (59/96)
+   C 4b/8o Anchor         completed by oddity: Phase 1 0.0% (0/42), Phase 2 3.1% (3/96); first touch on oddity: Phase 1 23.8% (10/42), Phase 2 45.8% (44/96)
+   D 8b/8o Parity-High    completed by oddity: Phase 1 0.0% (0/42), Phase 2 16.7% (16/96); first touch on oddity: Phase 1 26.2% (11/42), Phase 2 47.9% (46/96)
+   Phase 1 A vs B first touch on oddity: 33.3% vs 54.8%, Fisher p = 0.08
+   B first touch on oddity, Phase 1 vs Phase 2: 54.8% vs 61.5%, Fisher p = 0.572
+   Forced 4-stimulus cost: Phase 1 8.52 (n = 42), Phase 2 6.54 (n = 48); accuracy per touch 47% vs 61%
+   Side-switch rate on core trials: Phase 1 53%, Phase 2 31%
