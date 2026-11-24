@@ -31,15 +31,12 @@ text is in `docs/SafetyPop_Phase2_TrialDesign.md` and `docs/SafetyPop_Phase2_Tri
 All sessions reach 50 trials except **Billy session 9**, which covers trials 1 to 32 and 35 to 50.
 Trials 33 and 34 are not in any file.
 
-Two sessions need a decision before they can be merged:
-
-- **Billy session 3** has a 40-trial file from 08-26 and a full 50-trial file from 08-27. The
-  second is a complete independent run, not a resume. Keep-earliest would blend the two, taking
-  trials 1 to 40 from the first run and 41 to 50 from the second. That is probably not what is
-  wanted here.
-- **Billy session 7** spans five files across four days, with overlapping and out-of-order ranges,
-  one of them named `_correct_trial_number_`. The trial numbering needs checking before the merge
-  is trusted.
+Both subjects are merged (`data/processed/`, 548 trials for Billy and 500 for Ben) and analysed
+(`results/`). One session still needs a decision: **Billy session 3** has a 40-trial file from
+08-26 and a full 50-trial file from 08-27, and the second is a complete independent run, not a
+resume. The merge applies keep-earliest as it stands (1 to 40 from the first run, 41 to 50 from
+the second) and flags it; the alternative is to keep the 08-27 run whole. Billy session 7's
+numbering has been checked: every overlap trial carries the same `Code` in both files.
 
 ## Columns
 
@@ -52,7 +49,8 @@ additions are:
 | `EventLog` | Per-trial event record |
 | `TrialStart` | Trial onset timestamp |
 
-Full column definitions will be written from the Phase 2 source once it is in `app/`.
+The full column table is in `data/README.md`, written from the files; it is to be checked against
+the Phase 2 source once that is in `app/`.
 
 ## Layout
 
@@ -60,14 +58,14 @@ Full column definitions will be written from the Phase 2 source once it is in `a
 |---|---|
 | `app/` | Phase 2 task source. Not yet in the repository. |
 | `data/raw/<Subject>/` | 31 session files, exactly as saved |
-| `data/processed/` | Empty. Nothing merged yet. |
-| `analysis/` | Empty. The Phase 2 merger is still to be written. |
-| `results/` | Empty. |
+| `data/processed/` | Merged datasets and per-trial tables for Billy and Ben |
+| `analysis/` | The pipeline: `merge_safetypop2.py`, `derive_safetypop2.py`, `analyze_safetypop2.py`, `figure_safetypop2.py` |
+| `results/` | Printouts and figures for Billy and Ben, with a findings summary in its README |
 | `docs/` | Trial design overview (PDF), full design text and trial type names |
 
 ## Still to add
 
 - [ ] The Phase 2 task source and its `Stim/` assets
-- [ ] `analysis/merge_safetypop2.py`, keep-earliest over 50-trial sessions
-- [ ] Column definitions in `data/README.md`, written from the source
-- [ ] A decision on Billy sessions 3 and 7 before either is merged
+- [ ] Column definitions checked against the source
+- [ ] A decision on Billy session 3 (keep-earliest blend, or the 08-27 run whole)
+- [ ] Raw files for the remaining subjects, then the race-model check on each
