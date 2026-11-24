@@ -1,0 +1,592 @@
+<Page x:Class="SafetyPop"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="SafetyPop" Height="1080" Width="2944" Background="Black">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <!-- ===== Face brushes (existing) ===== -->
+            <ImageBrush ImageSource="Stim\Control.png" x:Key="BubbleBrush"/>
+            <ImageBrush ImageSource="Stim\Happy.png" x:Key="HappyBrush"/>
+            <ImageBrush ImageSource="Stim\Anger.png" x:Key="AngerBrush"/>
+            <ImageBrush ImageSource="Stim\Fear.png" x:Key="FearBrush"/>
+            <ImageBrush ImageSource="Stim\Neutral.png" x:Key="NeutralBrush"/>
+            <ImageBrush ImageSource="Stim\Happy.png" x:Key="HappyInvBrush">
+                <ImageBrush.RelativeTransform>
+                    <ScaleTransform ScaleY="-1" CenterY="0.5"/>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+            <ImageBrush ImageSource="Stim\Anger.png" x:Key="AngerInvBrush">
+                <ImageBrush.RelativeTransform>
+                    <ScaleTransform ScaleY="-1" CenterY="0.5"/>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+            <ImageBrush ImageSource="Stim\Fear.png" x:Key="FearInvBrush">
+                <ImageBrush.RelativeTransform>
+                    <ScaleTransform ScaleY="-1" CenterY="0.5"/>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+
+            <!-- ===== ApeTouch button icon canvases (matches MC1) ===== -->
+            <Canvas x:Key="appbar_control_play" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                <Path Width="20.5832" Height="31.6667" Canvas.Left="30.0833" Canvas.Top="22.1667" Stretch="Fill" Fill="{DynamicResource BlackBrush}" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+            </Canvas>
+            <Canvas x:Key="appbar_debug_restart" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                <Path Width="28" Height="28" Canvas.Left="24" Canvas.Top="24" Stretch="Fill" Fill="{DynamicResource BlackBrush}" Data="F1 M 52,24L 52,52L 47,52L 47,43C 47,38.0295 42.9706,34 38,34L 37,34L 37,30L 30.25,36.5L 37,43L 37,39L 38,39C 40.2091,39 42,40.7909 42,43L 42,52L 24,52L 24,24L 52,24 Z "/>
+            </Canvas>
+            <Canvas x:Key="appbar_debug_stop" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                <Rectangle Width="28" Height="28" Canvas.Left="24" Canvas.Top="24" Stretch="Fill" Fill="{DynamicResource BlackBrush}"/>
+            </Canvas>
+            <Canvas x:Key="appbar_control_pause" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                <Path Width="22.1667" Height="28.5" Canvas.Left="26.9167" Canvas.Top="23.75" Stretch="Fill" Fill="{DynamicResource BlackBrush}" Data="F1 M 26.9167,23.75L 33.25,23.75L 33.25,52.25L 26.9167,52.25L 26.9167,23.75 Z M 42.75,23.75L 49.0833,23.75L 49.0833,52.25L 42.75,52.25L 42.75,23.75 Z "/>
+            </Canvas>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="WholeGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1920"/>
+            <ColumnDefinition Width="1024"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ============================================ -->
+        <!-- CONTROL SCREEN (Left, 1920 x 1080)           -->
+        <!-- ============================================ -->
+        <Grid x:Name="ControlScreen" Grid.Column="0" Background="#2D2D30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <!-- title -->
+                <RowDefinition Height="400"/>
+                <!-- top band: play | mini | home -->
+                <RowDefinition Height="480"/>
+                <!-- bottom band: parms | settings | data -->
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ===== TITLE ===== -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="SafetyPop v1.0" FontSize="28" FontWeight="Light" Foreground="Azure" Margin="0,0,30,0"/>
+                <Label x:Name="lbl_StatusIndicator" Content="" FontSize="16" FontWeight="Light" Foreground="LimeGreen" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <!-- ===== TOP BAND: Play | MiniView | Home (ApeTouch convention) ===== -->
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="340"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="340"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ==== PLAY/PAUSE BUTTON (column 1) ==== -->
+                <Grid x:Name="PausPlayControl" Grid.Column="1" VerticalAlignment="Center">
+                    <Button x:Name="pauseplay" Width="337" Height="337"
+                            Style="{DynamicResource MetroCircleButtonStyle}"
+                            BorderThickness="15" Background="Transparent"
+                            BorderBrush="#FF1D1D1D" Panel.ZIndex="3" Cursor="Hand">
+                        <Grid>
+                            <!-- Original SafetyPop icons preserved (PausePlay_Click toggles these) -->
+                            <Polygon x:Name="PlayIcon" Points="0,0 60,35 0,70" Fill="White" Margin="8,0,0,0"
+                                     HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
+                            <StackPanel x:Name="PauseIcon" Orientation="Horizontal" Visibility="Visible"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Width="18" Height="60" Fill="White" Margin="0,0,12,0"/>
+                                <Rectangle Width="18" Height="60" Fill="White"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+
+                    <!-- Decorative ellipse stack (matches MC1 chrome) -->
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="1" Panel.ZIndex="-3" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="azure" Offset="0.0"/>
+                                <GradientStop Color="#80808080" Offset="0.25"/>
+                                <GradientStop Color="#47474747" Offset="0.75"/>
+                                <GradientStop Color="black" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="0.1" Panel.ZIndex="-5" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="White" Offset="0.0"/>
+                                <GradientStop Color="black" Offset="0.4"/>
+                                <GradientStop Color="black" Offset="0.75"/>
+                                <GradientStop Color="black" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Fill="orange" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Height="300" Width="300" Opacity="0.05" Panel.ZIndex="-6" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="1" Panel.ZIndex="-3" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#B2B9B8B8" Offset="0"/>
+                                <GradientStop Color="#47474747" Offset="0.754"/>
+                                <GradientStop Color="#ED000000" Offset="1"/>
+                                <GradientStop Color="#BF343434" Offset="0.871"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="0.68" Panel.ZIndex="-3" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="azure" Offset="0.0"/>
+                                <GradientStop Color="#80808080" Offset="0.341"/>
+                                <GradientStop Color="#47474747" Offset="0.603"/>
+                                <GradientStop Color="black" Offset="1.0"/>
+                                <GradientStop Color="#E5CCD7D7" Offset="0.112"/>
+                                <GradientStop Color="#E5121212" Offset="0.871"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Margin="20" Opacity="0.4" Panel.ZIndex="-3" Stroke="Transparent" Fill="#FF72706A">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" Width="200"
+                             Margin="30,25,0,0" Panel.ZIndex="-3" Opacity="0.35">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <RadialGradientBrush Center="0.4,0.4" GradientOrigin="0.22,0.21" RadiusX="0.8" RadiusY="0.7">
+                                <GradientStop Color="White" Offset="0"/>
+                                <GradientStop Color="#BFFFFFFF" Offset="0.047"/>
+                                <GradientStop Color="#00474747" Offset="0.448"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                                <GradientStop Color="#64A7A7A7" Offset="0.237"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+
+                <!-- ==== MINIVIEW (column 3) ==== -->
+                <Grid Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border CornerRadius="12" BorderThickness="3" Width="490" Height="370" Panel.ZIndex="1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="White" Opacity=".3"/>
+                        </Border.BorderBrush>
+                        <Border.Background>
+                            <SolidColorBrush Color="Azure" Opacity=".05"/>
+                        </Border.Background>
+                    </Border>
+                    <Rectangle x:Name="miniview1" Width="480" Height="360" Panel.ZIndex="0"/>
+                    <Label Content="Ape Screen" FontSize="11" Foreground="Gray" FontWeight="Light"
+                           VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,-22"/>
+                </Grid>
+
+                <!-- ==== HOME BUTTON (column 5) ==== -->
+                <Grid x:Name="ReturnHomeControl" Grid.Column="5" VerticalAlignment="Center">
+                    <Button x:Name="HomeKey" Width="337" Height="337"
+                            Style="{DynamicResource MetroCircleButtonStyle}"
+                            BorderThickness="15" BorderBrush="#FF1D1D1D"
+                            Background="Transparent" Cursor="Hand">
+                        <Rectangle x:Name="HKBack1" Fill="White" Width="100" Height="100" Margin="0,0,0,0">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Visual="{StaticResource appbar_debug_restart}" x:Name="HomeKeyBrush1"/>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+
+                    <!-- Decorative ellipse stack (matches MC1 chrome) -->
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="1" Panel.ZIndex="-3" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="azure" Offset="0.0"/>
+                                <GradientStop Color="#80808080" Offset="0.25"/>
+                                <GradientStop Color="#47474747" Offset="0.75"/>
+                                <GradientStop Color="black" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="0.1" Panel.ZIndex="-5" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="White" Offset="0.0"/>
+                                <GradientStop Color="black" Offset="0.4"/>
+                                <GradientStop Color="black" Offset="0.75"/>
+                                <GradientStop Color="black" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Fill="orange" HorizontalAlignment="Center" VerticalAlignment="Center"
+                             Height="300" Width="300" Opacity="0.05" Panel.ZIndex="-6" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="1" Panel.ZIndex="-3" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#B2B9B8B8" Offset="0"/>
+                                <GradientStop Color="#47474747" Offset="0.754"/>
+                                <GradientStop Color="#ED000000" Offset="1"/>
+                                <GradientStop Color="#BF343434" Offset="0.871"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Opacity="0.68" Panel.ZIndex="-3" Stroke="Transparent">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="azure" Offset="0.0"/>
+                                <GradientStop Color="#80808080" Offset="0.341"/>
+                                <GradientStop Color="#47474747" Offset="0.603"/>
+                                <GradientStop Color="black" Offset="1.0"/>
+                                <GradientStop Color="#E5CCD7D7" Offset="0.112"/>
+                                <GradientStop Color="#E5121212" Offset="0.871"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="300"
+                             Margin="20" Opacity="0.4" Panel.ZIndex="-3" Stroke="Transparent" Fill="#FF72706A">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" Width="200"
+                             Margin="30,25,0,0" Panel.ZIndex="-3" Opacity="0.35">
+                        <Ellipse.Effect>
+                            <BlurEffect/>
+                        </Ellipse.Effect>
+                        <Ellipse.Fill>
+                            <RadialGradientBrush Center="0.4,0.4" GradientOrigin="0.22,0.21" RadiusX="0.8" RadiusY="0.7">
+                                <GradientStop Color="White" Offset="0"/>
+                                <GradientStop Color="#BFFFFFFF" Offset="0.047"/>
+                                <GradientStop Color="#00474747" Offset="0.448"/>
+                                <GradientStop Color="#00000000" Offset="1"/>
+                                <GradientStop Color="#64A7A7A7" Offset="0.237"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+            </Grid>
+
+            <!-- ===== BOTTOM BAND: Parameters | Settings | DataBox ===== -->
+            <Grid Grid.Row="2" Grid.Column="1" Margin="0,20,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="600"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ==== PARAMETERS / VARIABLES PANEL (left) ==== -->
+                <Border Grid.Column="0" CornerRadius="4" Padding="8" VerticalAlignment="Stretch">
+                    <Border.Background>
+                        <SolidColorBrush Color="Black" Opacity=".3"/>
+                    </Border.Background>
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="Gray" Opacity=".4"/>
+                    </Border.BorderBrush>
+                    <StackPanel>
+
+                        <!-- Subject dropdown (ApeTouch convention: bound to participantlist) -->
+                        <ComboBox x:Name="subject" Margin="0,0,0,10"
+                                  HorizontalContentAlignment="Center" Text="Participant"
+                                  ItemsSource="{Binding}" Height="40" IsEditable="True"
+                                  IsReadOnly="True" FontWeight="Light" Foreground="Azure"
+                                  FontSize="20" BorderBrush="#707070" MaxDropDownHeight="500">
+                            <ComboBox.Background>
+                                <SolidColorBrush Color="Black" Opacity=".6"/>
+                            </ComboBox.Background>
+                        </ComboBox>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <Label Padding="3" Content="Participant" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Species" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Date" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Session" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Start Time" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Location" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Content="" Height="8"/>
+                                <Label Padding="3" Content="Trial" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Trial Code" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Trial Type" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Left Task" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Right Task" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Bubble Count" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Oddity Count" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Target Face" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Content="" Height="8"/>
+                                <Label Padding="3" Content="Bubble Touches" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Oddity Wins" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Oddity Errors" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Completed By" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                                <Label Padding="3" Content="Trial Time (ms)" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" FontWeight="Light" Foreground="Azure"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <Label x:Name="lbl_Subject" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lbl_Species" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lbl_DateTimeString" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lbl_Session" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lbl_SessionStart" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lbl_Location" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label Content="" Height="8"/>
+                                <Label x:Name="lblTrial" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblTrialCode" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblTrialType" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblLeftTask" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblRightTask" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblBubbleCount" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblOddityCount" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblFace" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label Content="" Height="8"/>
+                                <Label x:Name="lblBubbleTouches" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblOddityWins" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblOddityErrors" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblCompletedBy" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                                <Label x:Name="lblTrialTime" Content="-" Height="24" FontSize="12" Foreground="White"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- ==== SETTINGS (run mode + session/trial selectors + live metrics) ==== -->
+                <Border Grid.Column="2" CornerRadius="4" BorderThickness="1" VerticalAlignment="Stretch">
+                    <Border.Background>
+                        <SolidColorBrush Color="Black" Opacity=".15"/>
+                    </Border.Background>
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="Gray" Opacity=".3"/>
+                    </Border.BorderBrush>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="380"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Run mode controls (top) -->
+                        <StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="20,15,20,5">
+                            <Label Content="Settings" FontSize="18" FontWeight="Light" Foreground="Gray"
+                                   HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                            <Label Content="Run mode" FontSize="12" FontWeight="Light" Foreground="Azure"
+                                   HorizontalAlignment="Left" Margin="0,0,0,2"/>
+                            <StackPanel Margin="20,0,0,8">
+                                <RadioButton x:Name="rbModeFixed" GroupName="RunMode"
+                                             Content="Fixed sequence (resume-able)"
+                                             Foreground="Azure" Background="White" FontSize="12"
+                                             Margin="0,0,0,4" IsChecked="True"/>
+                                <RadioButton x:Name="rbModeRandom" GroupName="RunMode"
+                                             Content="Random shuffle each session"
+                                             Foreground="Azure" Background="White" FontSize="12"/>
+                            </StackPanel>
+
+                            <Grid Margin="0,2,0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="Session #:" FontSize="12" FontWeight="Light"
+                                       Foreground="Azure" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
+                                <ComboBox Grid.Column="1" x:Name="cmbSessionNumber" Width="100" Height="24"
+                                          FontSize="12" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+                            </Grid>
+
+                            <Grid Margin="0,2,0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="Start at trial:" FontSize="12" FontWeight="Light"
+                                       Foreground="Azure" HorizontalAlignment="Right" VerticalContentAlignment="Center"/>
+                                <ComboBox Grid.Column="1" x:Name="cmbStartTrial" Width="100" Height="24"
+                                          FontSize="12" Margin="5,0,0,0" HorizontalAlignment="Left"/>
+                            </Grid>
+
+                            <Label x:Name="lblRunModeHint" Content="Press play to start session"
+                                   FontSize="11" FontStyle="Italic" Foreground="#888888" FontWeight="Light"
+                                   HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                        </StackPanel>
+
+                        <!-- Live metrics display (middle, scrollable) -->
+                        <Border Grid.Row="0" Margin="230,0,0,0" Width="580" CornerRadius="3" BorderThickness="1" Padding="8">
+                            <Border.Background>
+                                <SolidColorBrush Color="Black" Opacity=".3"/>
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="Gray" Opacity=".25"/>
+                            </Border.BorderBrush>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                <TextBlock x:Name="tbMetrics" FontFamily="Consolas" FontSize="11"
+                                           Foreground="Azure" TextWrapping="NoWrap"
+                                           Text="(live performance will appear here once a session begins)"/>
+                            </ScrollViewer>
+                        </Border>
+
+                        <!-- Save metrics button (bottom) -->
+                        <Button Grid.Row="2" x:Name="btnSaveMetrics" Content="Save Session Metrics"
+                                FontSize="14" FontWeight="Light" Background="DarkSlateBlue" Foreground="Azure"
+                                Height="38" Margin="15,5,15,15" Opacity=".8"
+                                Click="SaveMetrics_Click"/>
+                    </Grid>
+                </Border>
+
+                <!-- ==== DATABOX (right) ==== -->
+                <Grid Grid.Column="4" x:Name="DataBoxCanvas">
+                    <Border BorderThickness="2" CornerRadius="4">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="Gray" Opacity=".4"/>
+                        </Border.BorderBrush>
+                    </Border>
+
+                    <!-- Header bar -->
+                    <Border Height="50" VerticalAlignment="Top" CornerRadius="4,4,0,0">
+                        <Border.Background>
+                            <SolidColorBrush Color="Black" Opacity=".4"/>
+                        </Border.Background>
+                    </Border>
+                    <Grid Height="50" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="1" Content="SafetyPop" FontSize="20" FontWeight="Light"
+                               Foreground="Azure" VerticalContentAlignment="Center"/>
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                            <Label x:Name="lbldbsubject" Content="" FontSize="11" FontWeight="Light" Foreground="Gray" Height="18" Padding="2"/>
+                            <Label x:Name="lbldbtimestring" Content="" FontSize="11" FontWeight="Light" Foreground="Gray" Height="18" Padding="2"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- Footer bar with buttons -->
+                    <Grid Height="50" VerticalAlignment="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Content="Save Data" FontSize="20" FontWeight="Light"
+                                Background="Green" Opacity=".6" Height="40" Click="Save_Click"/>
+                        <Button Grid.Column="3" Content="Clear" FontSize="20" FontWeight="Light"
+                                Background="Red" Opacity=".6" Height="40" Click="Clear_Click"/>
+                    </Grid>
+
+                    <!-- DataBox text -->
+                    <TextBox x:Name="DataBox" VerticalAlignment="Stretch"
+                             Margin="10,55,10,55" Foreground="Azure" FontSize="11"
+                             FontWeight="Light" FontFamily="Consolas" BorderThickness="0"
+                             Background="Transparent" HorizontalScrollBarVisibility="Visible"
+                             VerticalScrollBarVisibility="Visible" Focusable="False"
+                             AcceptsReturn="True" IsReadOnly="True"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+        <!-- ============================================ -->
+        <!-- APE SCREEN (Right, 1024 wide)                -->
+        <!-- ============================================ -->
+        <Grid x:Name="ExpScreen" Grid.Column="1" Background="Black">
+
+            <Grid x:Name="TaskScreen" Width="1024" Height="768"
+                  HorizontalAlignment="Left" VerticalAlignment="Top" ClipToBounds="False">
+
+                <!-- Background image -->
+                <Rectangle Height="768" Width="1024" Name="RectBack">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/Stim/pmac_back1.png" Stretch="Fill"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <!-- LEFT GRID -->
+                <Grid Height="640" Width="480" Margin="22,72,0,0"
+                      HorizontalAlignment="Left" VerticalAlignment="Top"
+                      x:Name="LeftGrid" Panel.ZIndex="1" ClipToBounds="False">
+                    <Rectangle x:Name="L1" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="L2" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="L3" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="L4" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="L5" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="L6" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="L7" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="L8" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- RIGHT GRID -->
+                <Grid Height="640" Width="480" Margin="522,72,0,0"
+                      HorizontalAlignment="Left" VerticalAlignment="Top"
+                      x:Name="RightGrid" Panel.ZIndex="1" ClipToBounds="False">
+                    <Rectangle x:Name="R1" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="R2" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="R3" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="R4" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="R5" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="R6" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="R7" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Rectangle x:Name="R8" Width="140" Height="140" Fill="Transparent" Panel.ZIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Curtain (ape screen blackout) -->
+                <Grid x:Name="Curtain" Panel.ZIndex="100" Background="Black" Visibility="Visible">
+                    <Rectangle Fill="Black" Height="768" Width="1024"/>
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

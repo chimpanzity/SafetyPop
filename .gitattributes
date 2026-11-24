@@ -1,0 +1,29 @@
+# Let git normalise line endings for files it recognises as text
+* text=auto
+
+# Raw session files are stored byte for byte (the app writes CRLF). No conversion, ever.
+data/raw/** -text
+
+# Visual Studio sources check out with CRLF
+*.vb     text eol=crlf
+*.xaml   text eol=crlf
+*.vbproj text eol=crlf
+*.sln    text eol=crlf
+*.config text eol=crlf
+*.resx   text eol=crlf
+
+# Binary
+*.xlsx binary
+*.xls  binary
+*.docx binary
+*.pptx binary
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.bmp  binary
+*.ico  binary
+*.wav  binary
+*.mp3  binary
+*.zip  binary

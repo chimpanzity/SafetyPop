@@ -1,0 +1,24 @@
+# Visual Studio
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS and Office clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# Local scratch output
+/scratch/
