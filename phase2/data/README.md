@@ -74,6 +74,7 @@ originals contain spaces and parentheses: `_Billy_t34__correct_trial_number_` an
 | `SafetyPop2_<Subject>_AllSessions.xlsx` | `All Sessions` sheet: every retained trial, raw columns verbatim plus `SourceFile`. `Merge Log` sheet: flags, source-file inventory, per-session coverage against the 50-trial design, and every dropped row beside the row kept in its place |
 | `SafetyPop2_<Subject>_AllSessions.csv` | The `All Sessions` sheet as CSV |
 | `SafetyPop2_<Subject>_Trials.csv` | One row per trial with the derived measures (first touch, completion, per-stage outcomes, cost, switching, ghost touch); columns defined at the top of `../analysis/derive_safetypop2.py` |
+| `SafetyPop2_AllSubjects.csv` | Every trial of Arthur, Ben, Billy, Evelyn and Rowena in one file: raw columns (Subject set to the ape), derived measures, `Missing`, and `RunningCost4` (mean cost of the previous 8 forced 4-circle trials). Built by `../analysis/learning_flip.py` |
 
 Arthur: 25 files, 1,012 rows read, 974 kept. Ben: 17 files, 670 read, 665 kept. Billy: 32 files,
 1,242 read, 998 kept. Evelyn: 19 files, 719 read, 600 kept. Rowena: 11 files, 355 read, 350 kept.

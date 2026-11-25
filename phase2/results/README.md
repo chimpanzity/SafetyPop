@@ -9,6 +9,9 @@ by hand, and nothing here is an input to anything else.
 | `results_across_subjects.txt` | Pooled ghost-touch test, cross-divider perseveration, Phase 1 side-switch rates for all five subjects |
 | `figures/SafetyPop2_Billy_summary.png`, `SafetyPop2_Ben_summary.png` | Six-panel summary per subject from `figure_safetypop2.py`: competence by session, forced 4-circle cost by polarity, route choice by cell, the Crossover cell by session, within-trial monitoring, ghost touches against the adjusted chance |
 | `figures/SafetyPop2_two_apes.png` | Both apes on the crossover cost curve (Experiment 1 open, Experiment 2 filled) and their Crossover-cell first-touch rates by session |
+| `learning_flip.txt` | From `learning_flip.py`: errors on forced trials by session, oddity choice in each cell against the ape's own running 4-circle cost, the B-vs-C selectivity test, and ghost touches split at the break-even |
+| `figures/SafetyPop2_learning_flip.png` | One row per ape: forced 4-circle cost by session against the break-even, then completed-by-Oddity and first-touch-on-Oddity by session for each cell |
+| `figures/SafetyPop2_ghost_touches.png` | Ghost-touch rate against position-adjusted chance, per ape and pooled |
 
 ## Findings with five subjects (2026-11-24 compilation)
 
