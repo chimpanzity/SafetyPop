@@ -21,6 +21,14 @@ Needs Python 3.10 or later with `pandas`, `numpy`, `scipy`, `openpyxl`, `matplot
 Rebuilding from a clean checkout reproduces every CSV, printout and figure byte for byte; the
 workbooks differ only in their zip timestamps.
 
+## `learning_flip.py`
+
+Run after the pipeline. Writes `../data/processed/SafetyPop2_AllSubjects.csv` (every trial of the
+five subjects in one file: raw columns, derived measures, and `RunningCost4`, the mean cost of
+the previous 8 forced 4-circle trials), `../results/learning_flip.txt` (learning on forced
+trials, oddity choice by cell against running cost, the B-vs-C selectivity test, ghost touches
+split at the break-even) and two figures in `../results/figures/`.
+
 ## Merge rules (`merge_safetypop2.py`)
 
 - Keep-earliest: for each (Session, Trial) the row with the earliest `TrialStart` is kept and

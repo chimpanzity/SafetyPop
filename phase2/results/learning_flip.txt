@@ -1,0 +1,136 @@
+SafetyPop Phase 2: learning, the Crossover flip, and ghost touches
+==============================================================================
+3587 trials, 73 sessions, subjects Arthur, Ben, Billy, Evelyn, Rowena
+Running 4-circle cost = mean touches on the previous 8 forced 4-circle trials. Break-even = 8.
+
+1. LEARNING (H2): errors on forced oddity trials across sessions
+------------------------------------------------------------------------------
+                4-circle errors (I)                8-circle errors (J)        
+subject  first 3 S  last 3 S    rho        p first 3 S  last 3 S    rho        p
+Arthur        4.00      4.58  -0.10    0.379     16.83     12.83  -0.20   0.0862
+Ben           3.17      2.58  -0.09    0.515     14.17      5.89  -0.46 0.000492
+Billy         3.08      2.50  -0.04    0.759     20.83      4.58  -0.47 8.94e-06
+Evelyn        2.58      2.83  +0.15    0.323      8.92      6.42  -0.22     0.14
+Rowena        3.08      5.75  +0.32   0.0978     11.17     12.33  -0.09    0.657
+Errors per array; chance is 6 for 4 circles and 28 for 8; rho is Spearman over trials, session vs errors.
+   Arthur: 4-circle cost by session 8.8 8.5 6.8 9.2 8.0 8.0 6.8 6.8 6.0 7.8 7.5 6.5 7.0 6.2 6.5 6.5 7.2 7.2 8.8 9.8   (sessions below 8: 13 of 20)
+   Ben: 4-circle cost by session 8.2 6.2 7.0 12.0 7.0 6.5 6.8 5.8 6.8 9.0 8.0 5.5 6.2   (sessions below 8: 9 of 13)
+   Billy: 4-circle cost by session 9.2 6.8 5.2 5.0 8.8 7.0 5.8 7.5 5.7 9.2 10.0 4.8 7.0 5.0 4.8 7.0 7.0 6.0 6.0 7.5   (sessions below 8: 16 of 20)
+   Evelyn: 4-circle cost by session 6.2 6.0 7.5 5.8 5.0 6.2 6.8 8.2 6.2 6.2 8.0 6.2   (sessions below 8: 10 of 12)
+   Rowena: 4-circle cost by session 6.2 6.2 8.8 8.2 9.5 7.8 12.0   (sessions below 8: 3 of 7)
+
+2. THE FLIP (H3, H4): oddity choice by cell, against the subject's own running 4-circle cost
+------------------------------------------------------------------------------
+
+completed by Oddity (preregistered DV)
+subject  cell    all      cost>=8       cost<8  Fisher p  logit slope/touch        p
+Arthur   A        9%    10% n=40      9% n=112     0.762              -0.13      0.7
+Arthur   B       60%    56% n=41     62% n=110     0.577              -0.01    0.959
+Arthur   C        0%     0% n=40      0% n=112         1               +nan      nan
+Arthur   D        3%     5% n=39      2% n=113     0.272              -0.56    0.359
+Ben      A        0%     0% n=36      0% n=65          1               +nan      nan
+Ben      B       26%    15% n=33     31% n=70     0.0961              +0.41   0.0592
+Ben      C        0%     0% n=33      0% n=70          1               +nan      nan
+Ben      D        1%     0% n=30      1% n=71          1              +0.76    0.558
+Billy    A       19%    12% n=26     20% n=129     0.413              +0.18    0.344
+Billy    B       81%    78% n=23     82% n=132     0.772              +0.25    0.143
+Billy    C        0%     0% n=26      0% n=130         1               +nan      nan
+Billy    D       25%    14% n=22     26% n=133     0.286              +0.20    0.284
+Evelyn   A       25%       -         25% n=92        nan              +0.86   0.0553
+Evelyn   B       53%       -         53% n=91        nan              -0.63   0.0868
+Evelyn   C        3%       -          3% n=92        nan              -0.38    0.692
+Evelyn   D       16%       -         16% n=91        nan              +0.55    0.265
+Rowena   A       21%     7% n=28     38% n=24     0.0147              +0.70   0.0153
+Rowena   B       39%    17% n=30     71% n=21   0.000122              +1.05 0.000146
+Rowena   C        0%     0% n=28      0% n=24          1               +nan      nan
+Rowena   D        6%     0% n=27     12% n=24     0.0972              +1.22    0.136
+Logit slope: change in log-odds of Oddity per touch drop in running cost (positive = more Oddity as the ape gets better).
+
+first touch on Oddity
+subject  cell    all      cost>=8       cost<8  Fisher p  logit slope/touch        p
+Arthur   A       48%    50% n=40     47% n=112     0.854              -0.11    0.578
+Arthur   B       43%    46% n=41     42% n=110     0.712              -0.21    0.283
+Arthur   C       36%    32% n=40     37% n=112     0.703              -0.09    0.662
+Arthur   D       41%    49% n=39     38% n=113     0.262              -0.25    0.233
+Ben      A        9%     6% n=36     11% n=65      0.485              +0.50    0.185
+Ben      B       16%     3% n=33     21% n=70     0.0183              +0.66   0.0338
+Ben      C        5%     0% n=33      7% n=70      0.174              +0.84    0.152
+Ben      D       10%    10% n=30     10% n=71          1              +0.10    0.741
+Billy    A       68%    50% n=26     71% n=129    0.0405              +0.33   0.0243
+Billy    B       90%    83% n=23     92% n=132     0.242              +0.42   0.0531
+Billy    C       55%    46% n=26     57% n=130     0.389              +0.10    0.465
+Billy    D       81%    82% n=22     80% n=133         1              +0.14    0.458
+Evelyn   A       50%       -         50% n=92        nan              -0.15    0.677
+Evelyn   B       63%       -         63% n=91        nan              +0.67   0.0741
+Evelyn   C       45%       -         45% n=92        nan              +0.41    0.247
+Evelyn   D       47%       -         47% n=91        nan              +0.22    0.532
+Rowena   A       44%    21% n=28     71% n=24   0.000636              +0.69  0.00251
+Rowena   B       35%    30% n=30     43% n=21      0.385              +0.45   0.0377
+Rowena   C       31%    14% n=28     50% n=24    0.00736              +0.48   0.0323
+Rowena   D       33%    30% n=27     38% n=24      0.569              +0.31    0.139
+Logit slope: change in log-odds of Oddity per touch drop in running cost (positive = more Oddity as the ape gets better).
+
+Selectivity test (H4): does choice track competence in B more than in C?
+Logit of completed-by-Oddity on core B and C trials: cell x running cost interaction, per subject.
+   Arthur: C never completed by Oddity (152 trials), so C cannot move; B slope -0.01, p = 0.959
+   Ben: C never completed by Oddity (103 trials), so C cannot move; B slope +0.41, p = 0.0592
+   Billy: C never completed by Oddity (156 trials), so C cannot move; B slope +0.25, p = 0.143
+   Evelyn: interaction -0.25, p = 0.809
+   Rowena: C never completed by Oddity (52 trials), so C cannot move; B slope +1.05, p = 0.000146
+
+By session: share of trials completed by Oddity in each cell
+   Arthur
+      session    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20
+      A         0    0   12   12   12    0   12    0   12    0    0    0    0   12   12   12   25    0   12   38
+      B        50   75   50   50   50   75   88   62   50   38   38   62   62   75   62   88   38   62   62   75
+      C         0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+      D         0    0    0   12   12    0   12    0   12    0    0    0    0    0    0    0    0    0    0    0
+      B across sessions: Spearman rho = +0.19, p = 0.426
+   Ben
+      session    1    2    3    4    5    6    7    8    9   10   11   12   13   19
+      A         0    0    0    0    0    0    0    0    0    0    0    0    0    0
+      B        75   25   25    0    0    0   50   12   25   12   25   75   50   50
+      C         0    0    0    0    0    0    0    0    0    0    0    0    0    0
+      D         0    0    0    0    0    0    0    0    0    0    0    0   12    0
+      B across sessions: Spearman rho = +0.27, p = 0.347
+   Billy
+      session    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20
+      A        38    0   12   50   25   25   25   12   14   12   12   25   12   38    0   38   12   25    0   12
+      B        50   75   88   75   75  100   62   88   62   75   88  100   62   62  100   88  100   88   88   88
+      C         0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+      D         0   12    0   25   12   25    0   12   25   12   38   25   38   12   25   50   38   38   62   25
+      B across sessions: Spearman rho = +0.41, p = 0.0722
+   Evelyn
+      session    1    2    3    4    5    6    7    8    9   10   11   12
+      A        25   50   50   12   25   25   25    0   12   50   12   12
+      B        62   88   50   25   12   38   38   50   50   75   75   75
+      C         0   12   12    0    0    0    0    0   12    0    0    0
+      D        12   38   25   12    0   25   12    0    0   25   25   25
+      B across sessions: Spearman rho = +0.24, p = 0.456
+   Rowena
+      session    1    2    3    4    5    6    7
+      A        38   25   38   25    0    0   12
+      B        88   88   62   25    0   38    0
+      C         0    0    0    0    0    0    0
+      D        12   12   12    0    0    0    0
+      B across sessions: Spearman rho = -0.85, p = 0.0143
+
+3. GHOST TOUCHES (H7): first bubble in the oddity target's cell, against position-adjusted chance
+------------------------------------------------------------------------------
+   Arthur   all         102/615  =  16.6%  chance  16.4%  p = 0.91
+   Arthur   cost >= 8    29/159  =  18.2%  chance  16.8%  p = 0.67
+   Arthur   cost < 8     71/438  =  16.2%  chance  16.1%  p = 0.97
+   Ben      all          66/411  =  16.1%  chance  17.8%  p = 0.34
+   Ben      cost >= 8    19/132  =  14.4%  chance  18.0%  p = 0.29
+   Ben      cost < 8     45/264  =  17.0%  chance  17.6%  p = 0.86
+   Billy    all         124/592  =  20.9%  chance  18.7%  p = 0.17
+   Billy    cost >= 8    20/92   =  21.7%  chance  18.6%  p = 0.51
+   Billy    cost < 8    100/483  =  20.7%  chance  18.8%  p = 0.30
+   Evelyn   all          66/336  =  19.6%  chance  18.1%  p = 0.49
+   Evelyn   cost < 8     66/322  =  20.5%  chance  18.3%  p = 0.32
+   Rowena   all          34/205  =  16.6%  chance  18.0%  p = 0.65
+   Rowena   cost >= 8    17/111  =  15.3%  chance  18.0%  p = 0.50
+   Rowena   cost < 8     13/77   =  16.9%  chance  18.3%  p = 0.87
+   pooled   all         392/2159 =  18.2%  chance  17.7%  p = 0.57
+   pooled   cost >= 8    85/494  =  17.2%  chance  17.7%  p = 0.79
+   pooled   cost < 8    295/1584 =  18.6%  chance  17.7%  p = 0.33
