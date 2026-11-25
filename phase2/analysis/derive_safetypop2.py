@@ -36,6 +36,7 @@ TargetAtFirstBubble    oddity target's cell when that bubble was touched
 GhostEligible          1 if that target cell held a bubble, so a ghost touch was possible
 Ghost                  1 if the first bubble touched sat in the target's cell at that moment
 GhostApp               the app's own FirstBubbleGhost flag, for comparison (1 ghost, 2 other, 3 none)
+Missing                1 for a blank row standing in for a trial that is in no file; every measure is blank
 """
 
 import argparse
@@ -146,11 +147,12 @@ def derive(subject, verbose=True):
     df = pd.read_csv(src)
     df = df.sort_values(["Session", "Trial"]).reset_index(drop=True)
     df.insert(df.columns.get_loc("Trial") + 1, "GlobalTrial", np.arange(1, len(df) + 1))
-    derived = pd.DataFrame([derive_row(r) for _, r in df.iterrows()])
+    df["Missing"] = df.SourceFile.astype(str).str.startswith("MISSING").astype(int)
+    derived = pd.DataFrame([derive_row(r) if not r.Missing else {} for _, r in df.iterrows()])
     keep = ["Subject", "Date", "Session", "Trial", "GlobalTrial", "Code", "Type", "Polarity", "Side", "LTask", "RTask",
             "BubN", "OddN", "TargetCellPos", "TargetSide", "LeftPositions", "RightPositions", "CompletedBy",
             "BubTouches", "OddWins", "OddErrors", "OddTwoStimWin", "FirstBubbleGhost", "LatencyFirstTouch_ms",
-            "LatencyFirstTarget_ms", "TrialTime_ms", "TouchLog", "TargetCellHistory", "TrialStart", "SourceFile"]
+            "LatencyFirstTarget_ms", "TrialTime_ms", "TouchLog", "TargetCellHistory", "TrialStart", "SourceFile", "Missing"]
     out = pd.concat([df[keep], derived], axis=1)
     out["Subject"] = subject                        # the raw column holds the app default 'TestSubject'
     dst = PROC / f"SafetyPop2_{subject}_Trials.csv"

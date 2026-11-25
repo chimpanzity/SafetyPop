@@ -94,7 +94,14 @@ Every kept row is byte-identical to its source line, and every overlap trial car
 
 - **Billy session 9 is incomplete.** Coverage is trials 1 to 32 and 35 to 50. Trials 33 and 34
   (one A trial and one I trial) are not in any file, so the session cannot be completed from what
-  is here. The merged dataset carries the 48 trials.
+  is here; the 09-05 file stops at 32 and the 09-08 file resumes at 35, so they were most likely
+  never run. Decision (2026-11-24): keep them as blank rows. The merged dataset has a row for each,
+  with `Session`, `Trial` and the design columns `Code`, `Type`, `Polarity`, `Side` filled (I2R and
+  A1L, read from the other subjects' runs of session 9, since the sequence for a session number is
+  the same for every subject), every other column empty, and `SourceFile` set to
+  `MISSING: trial in no file (blank row)`. In the `_Trials.csv` table they carry `Missing = 1`,
+  and the analysis scripts leave them out. The merge adds such rows only for gaps inside a
+  session, not for sessions that stop early.
 - **Billy session 3 is not a resume.** The 08-26 file holds trials 1 to 40 and the 08-27 file holds
   all 50. The second looks like a complete independent run rather than a continuation. The merge
   applies keep-earliest as it stands, taking 1 to 40 from the first run and 41 to 50 from the

@@ -492,7 +492,7 @@ def main():
     p1 = load_phase1()
     ghosts = []
     for s in subjects:
-        t = pd.read_csv(PROC / f"SafetyPop2_{s}_Trials.csv")
+        t = pd.read_csv(PROC / f"SafetyPop2_{s}_Trials.csv").query("Missing == 0")
         buf = io.StringIO()
         with redirect_stdout(buf):
             ghosts.append(analyze(s, t, p1))
@@ -508,7 +508,7 @@ def main():
             print("\nExploratory  Cross-divider perseveration (a floor under the ghost rate)")
             print("-" * 72)
             for s in subjects:
-                perseveration(s, pd.read_csv(PROC / f"SafetyPop2_{s}_AllSessions.csv"))
+                perseveration(s, pd.read_csv(PROC / f"SafetyPop2_{s}_AllSessions.csv").query("not SourceFile.str.startswith(\"MISSING\")", engine="python"))
             phase1_switching(p1)
         print(buf.getvalue())
         (RESULTS / "results_across_subjects.txt").write_text(buf.getvalue(), encoding="utf-8")

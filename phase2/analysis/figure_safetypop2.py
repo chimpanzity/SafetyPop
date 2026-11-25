@@ -267,7 +267,7 @@ def main():
         ap.error("give --subject <name> or --all")
     RESULTS.mkdir(parents=True, exist_ok=True)
     p1 = load_phase1()
-    tables = {s: pd.read_csv(PROC / f"SafetyPop2_{s}_Trials.csv") for s in subjects}
+    tables = {s: pd.read_csv(PROC / f"SafetyPop2_{s}_Trials.csv").query("Missing == 0") for s in subjects}
     for s in subjects:
         print("wrote", summary_figure(s, tables[s], p1).relative_to(REPO))
     if len(subjects) > 1:

@@ -42,6 +42,25 @@ TRIALS_PER_SESSION = 50
 DESIGN = {"A": 8, "B": 8, "C": 8, "D": 8, "E": 2, "F": 4, "G": 2, "H": 2, "I": 4, "J": 4}
 RESUME_OVERLAP_MAX = 5            # a later file re-running more trials than this is flagged as a restart
 INT_RE = re.compile(r"^-?\d+$")
+MISSING_TAG = "MISSING: trial in no file (blank row)"
+
+
+def design_codes(raw_dir):
+    """(Session, Trial) -> {Code, Type, Polarity, Side} from every subject's raw files. The trial
+    sequence for a session number is a fixed seeded shuffle, the same for every subject, so the
+    design of a trial missing for one subject can be read from another subject's run of it."""
+    out = {}
+    for path in sorted(raw_dir.rglob("SafetyPop2_*.txt")):
+        hdr, rows = read_file(path)
+        c = {n: i for i, n in enumerate(hdr)}
+        for r in rows:
+            f = r["fields"]
+            key = (int(f[c["Session"]]), int(f[c["Trial"]]))
+            val = {k: f[c[k]] for k in ("Code", "Type", "Polarity", "Side")}
+            if key in out and out[key]["Code"] != val["Code"]:
+                raise ValueError(f"design code for session {key[0]} trial {key[1]} differs between subjects")
+            out.setdefault(key, val)
+    return out
 NAME_RE = re.compile(r"_S(\d+)_(\d\d)-(\d\d)-(\d{4})_(\d\d)-(\d\d)-(\d\d)")
 
 
@@ -174,14 +193,34 @@ def merge(subject, raw_dir, out_dir, verbose=True):
             flags.append(("Dropped row has a different code from the kept row", f"session {key[0]} trial {key[1]}",
                           f"{drow['fields'][col['Code']]} in {dpath.name} vs {krow['fields'][col['Code']]} in {kpath.name}"))
 
+    # ---- blank rows for trials missing inside a session (a gap before the session's last trial).
+    # Sessions that simply stop early get no blank rows.
+    design = design_codes(raw_dir)
+    blanks = {}
+    for s in sorted(by_session):
+        trials = sorted(t for (ss, t) in kept if ss == s)
+        for t in range(1, trials[-1]):
+            if (s, t) not in kept:
+                fields = [""] * len(header)
+                fields[col["Session"]] = str(s)
+                fields[col["Trial"]] = str(t)
+                for k, v in design.get((s, t), {}).items():
+                    fields[col[k]] = v
+                blanks[(s, t)] = fields
+                flags.append(("Blank row added for a missing trial", f"session {s} trial {t}",
+                              f"design code {fields[col['Code']] or 'unknown'} (from another subject's run of this session); all measures blank"))
+
     # ---- write
     out_dir.mkdir(parents=True, exist_ok=True)
-    order = sorted(kept)
+    order = sorted(set(kept) | set(blanks))
     wb = Workbook()
     ws = wb.active
     ws.title = "All Sessions"
     ws.append(header + ["SourceFile"])
     for key in order:
+        if key in blanks:
+            ws.append([int(v) if INT_RE.match(v) else (v or None) for v in blanks[key]] + [MISSING_TAG])
+            continue
         path, r = kept[key]
         ws.append([int(v) if INT_RE.match(v) else v for v in r["fields"]] + [path.name])
     ws.freeze_panes = "A2"
@@ -258,6 +297,9 @@ def merge(subject, raw_dir, out_dir, verbose=True):
         w = csv.writer(fh, lineterminator="\n")
         w.writerow(header + ["SourceFile"])
         for key in order:
+            if key in blanks:
+                w.writerow(blanks[key] + [MISSING_TAG])
+                continue
             path, r = kept[key]
             w.writerow(r["fields"] + [path.name])
 

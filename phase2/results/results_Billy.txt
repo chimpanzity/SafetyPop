@@ -28,7 +28,7 @@ H2  Competence on forced oddity trials (I = 4 stimuli, J = 8)
       20      40      0.57    0.28    7.50   11.50      0.50
 All sessions: per-stage accuracy 0.555 vs chance 0.280 (binomial p = 3.7e-59); I cost 6.77 (chance 10, mastery 4; n = 79), J cost 16.61 (chance 36, mastery 8; n = 80)
 Two-stimulus stage on I trials (chance 0.5): 0.53; on J: 0.64
-Single-step change-point in per-stage accuracy: before trial 565 (session 12) 0.47 (n = 451 stages), after 0.67 (n = 346); LR = 32.0 (a flat model is nested, 2 extra parameters; LR above ~6 is clear, above ~10 strong)
+Single-step change-point in per-stage accuracy: before trial 567 (session 12) 0.47 (n = 451 stages), after 0.67 (n = 346); LR = 32.0 (a flat model is nested, 2 extra parameters; LR above ~6 is clear, above ~10 strong)
 Gradual gain, I cost on session: slope -0.04 touches/session, p = 0.48 (trial level, n = 79)
 
 Exploratory  Target polarity (White = white target among black; Black = black among white)
@@ -95,7 +95,7 @@ Logistic, first touch on oddity ~ 8 bubbles + 8 circles: OR(8 bubbles) = 3.45 [2
 H3 (preregistered form)  Does the B choice track competence over time?
 ------------------------------------------------------------------------
 Session-level Spearman, I/J accuracy vs B first touch: rho = +0.29 (p = 0.21); vs B completion: rho = +0.43 (p = 0.06)
-B first touch before vs after the competence change-point (trial 565): 86.8% (79/91) vs 92.8% (64/69), Fisher p = 0.303
+B first touch before vs after the competence change-point (trial 567): 86.8% (79/91) vs 92.8% (64/69), Fisher p = 0.303
 
 H5  Within-trial switching (core trials)
 ------------------------------------------------------------------------
